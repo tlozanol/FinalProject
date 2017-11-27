@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">FinalProject</string>
+
+
+    <!-- Main Menu -->
+    <string name="mainMenuTitle">Main Menu</string>
+    <string name="buttonToFoodTracker">Food Tracker</string>
+    <string name="buttonToActivityTracker">Activity Tracker</string>
+    <string name="buttonToThermostat">Thermostat</string>
+    <string name="buttonToAutomobile">Automobile</string>
+
+
+    <!-- Food Tracker -->
+    <string name="foodTrackerTitle">Food Tracker</string>
+
+
+    <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Activity Tracker</string>
+
+
+    <!-- Thermostat -->
+    <string name="thermostatTitle">Thermostat</string>
+
+
+    <!-- Automobile -->
+    <string name="automobileTitle">Automobile</string>
+
+
 </resources>
