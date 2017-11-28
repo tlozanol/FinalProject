@@ -9,8 +9,8 @@
         android:id="@+id/textMainMenuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="@string/mainMenuTitle" />
 
@@ -27,8 +27,8 @@
         android:id="@+id/buttonToActivityTracker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/buttonToFoodTracker"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/buttonToActivityTracker" />
 
@@ -36,8 +36,8 @@
         android:id="@+id/buttonToThermostat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/buttonToActivityTracker"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/buttonToThermostat" />
 
@@ -45,8 +45,8 @@
         android:id="@+id/buttonToAutomobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/buttonToThermostat"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="@string/buttonToAutomobile" />
 
