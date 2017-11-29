@@ -5,13 +5,33 @@
     android:layout_height="match_parent"
     tools:context="team.best.team.finalproject.FoodTrackerActivity">
 
-    <TextView
-        android:id="@+id/textFoodTrackerTitle"
+    <ListView
+
+        android:id="@+id/listFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/listFood"/>
+
+    <EditText
+        android:id="@+id/editTextFoodTracker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/foodTrackerTitle" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@id/editTextFoodTracker"
+
+        />
+
+    <Button
+        android:id="@+id/btnFoodTrackerEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="Enter Information" />
 
 </RelativeLayout>
