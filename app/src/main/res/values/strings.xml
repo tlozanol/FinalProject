@@ -12,6 +12,7 @@
 
     <!-- Food Tracker -->
     <string name="foodTrackerTitle">Food Tracker</string>
+    <string name="button">button_Enter</string>
 
 
     <!-- Activity Tracker -->
