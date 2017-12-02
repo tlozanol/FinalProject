@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 1;
+    private static final int VERSION_NUM = 2;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
     
@@ -146,8 +146,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 dataFromDB.add(new ArrayList<String>());
                 
                 // add all the values of each column to ArrayList that will be returned
-                for (int col = 0; col < columns.length; col++) {
-                    String cellRetrieved = cursor.getString(cursor.getColumnIndex(columns[col]));
+                for (int col = 0; col < cursor.getColumnCount(); col++) {
+                    String cellRetrieved = cursor.getString(col);
                     Log.i(ACTIVITY_NAME, "-- -- Got: " + cellRetrieved);
                     dataFromDB.get(row).add(cellRetrieved);
                 }

@@ -1,10 +1,17 @@
 package team.best.team.finalproject;
 
 import android.app.Activity;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -12,7 +19,12 @@ public class ThermostatActivity extends Activity {
     
     private static final String ACTIVITY_NAME = "ThermostatActivity";
     
+    ArrayList<ArrayList<String>> thermostatArray = new ArrayList<>();
+    
     DatabaseHelper databaseHelper;
+    ListView listThermostat;
+    ThermostatListAdapter thermostatListAdapter;
+    SQLiteDatabase writableDatabase;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,30 +33,87 @@ public class ThermostatActivity extends Activity {
         Log.i(ACTIVITY_NAME, "-- In onCreate()");
     
         databaseHelper = new DatabaseHelper(this);
+        writableDatabase = databaseHelper.getWritableDatabase();
+        thermostatArray = databaseHelper.getThermostatDataFromDB();
+    
+        listThermostat = findViewById(R.id.listThermostat);
+        thermostatListAdapter = new ThermostatListAdapter(this);
+        listThermostat.setAdapter(thermostatListAdapter);
     
         Button buttonAddTemperature = findViewById(R.id.buttonAddTemperature);
-        Button buttonGetTemperature = findViewById(R.id.buttonGetTemperature);
     
         buttonAddTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayList<String> dataToDB = new ArrayList<>();
-                dataToDB.add("Monday");
-                dataToDB.add("2:00");
+                dataToDB.add("Friday");
+                dataToDB.add("6:00");
                 dataToDB.add("20");
                 databaseHelper.addThermostatDataToDB(dataToDB);
-            }
-        });
-    
-        buttonGetTemperature.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ArrayList<ArrayList<String>> dataFromDB = databaseHelper.getThermostatDataFromDB();
-                //Log.i(ACTIVITY_NAME, "-- got: " + dataFromDB.get(0).get(0));
+                refreshThermostatEntries();
             }
         });
     }
     
+    private void refreshThermostatEntries() {
+        Log.i(ACTIVITY_NAME, "-- In refreshThermostatEntries()");
+        
+        databaseHelper = new DatabaseHelper(this);
+        writableDatabase = databaseHelper.getWritableDatabase();
+        thermostatArray = databaseHelper.getThermostatDataFromDB();
+        
+        thermostatListAdapter = new ThermostatListAdapter(this);
+        listThermostat.setAdapter(thermostatListAdapter);
+    }
+    
+    
+    private class ThermostatListAdapter extends ArrayAdapter<String> {
+        
+        public ThermostatListAdapter(Context context) {
+            super(context, 0);
+            Log.i(ACTIVITY_NAME, "-- ThermostatListAdapter constructor");
+        }
+        
+        @Override
+        public int getCount() {
+            return thermostatArray.size();
+        }
+        
+        /*public String getItem(int position) {
+            return thermostatArray.get(position);
+        }*/
+        
+        /*public ArrayList<String> getItems(int position)
+        {
+            ArrayList<String> row = new ArrayList<>();
+            for (int i = 0; i < thermostatArray.get(position).size(); i++){
+                row.add(thermostatArray.get(position).get(i));
+            }
+            return row;
+        }*/
+        
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Log.i(ACTIVITY_NAME, "-- ThermostatListAdapter getView()");
+            LayoutInflater inflater = ThermostatActivity.this.getLayoutInflater();
+            View result = inflater.inflate(R.layout.thermostat_entry, null);
+            
+            TextView textThermostatEntryID = result.findViewById(R.id.textThermostatEntryID);
+            TextView textThermostatEntryDay = result.findViewById(R.id.textThermostatEntryDay);
+            TextView textThermostatEntryTime = result.findViewById(R.id.textThermostatEntryTime);
+            TextView textThermostatEntryTemperature = result.findViewById(R.id.textThermostatEntryTemperature);
+            
+            // getItem(s) unnecessary since we are parsing through the ArrayList in getView
+            ArrayList<String> row = thermostatArray.get(position);
+            
+            textThermostatEntryID.setText(row.get(0));
+            textThermostatEntryDay.setText(row.get(1));
+            textThermostatEntryTime.setText(row.get(2));
+            textThermostatEntryTemperature.setText(row.get(3));
+            
+            return result;
+        }
+    }
 }
 
 

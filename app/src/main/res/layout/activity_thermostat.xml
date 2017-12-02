@@ -9,26 +9,26 @@
         android:id="@+id/textThermostatTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
         android:text="@string/thermostatTitle" />
+
+    <ListView
+        android:id="@+id/listThermostat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonAddTemperature"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textThermostatTitle"
+        android:layout_marginTop="35dp" />
 
     <Button
         android:id="@+id/buttonAddTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textThermostatTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:text="Add Temp to Database" />
 
-    <Button
-        android:id="@+id/buttonGetTemperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonAddTemperature"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Get Temp from Database" />
 </RelativeLayout>
