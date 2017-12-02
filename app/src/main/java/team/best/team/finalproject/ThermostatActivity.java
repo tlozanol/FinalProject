@@ -2,12 +2,14 @@ package team.best.team.finalproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -40,19 +42,55 @@ public class ThermostatActivity extends Activity {
         thermostatListAdapter = new ThermostatListAdapter(this);
         listThermostat.setAdapter(thermostatListAdapter);
     
+        listThermostat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long position) {
+                long clickedItemID = databaseHelper.getThermostatItemID((int) position);
+                Log.i(ACTIVITY_NAME, "-- Past getItemID 1");
+                String clickedDay = thermostatArray.get((int) position).get(0);
+                String clickedTime = thermostatArray.get((int) position).get(1);
+                String clickedTemperature = thermostatArray.get((int) position).get(2);
+            
+                Log.i(ACTIVITY_NAME, "-- Past getItemID 2");
+            
+                Bundle thermostatEntryBundle = new Bundle();
+                thermostatEntryBundle.putLong("ID", clickedItemID);
+                thermostatEntryBundle.putString("Day", clickedDay);
+                thermostatEntryBundle.putString("Time", clickedTime);
+                thermostatEntryBundle.putString("Temperature", clickedTemperature);
+            
+                Log.i(ACTIVITY_NAME, "-- Past getItemID 3");
+            
+                Intent goToThermostatEdit = new Intent(ThermostatActivity.this, ThermostatEditActivity.class);
+                goToThermostatEdit.putExtras(thermostatEntryBundle);
+                Log.i(ACTIVITY_NAME, "-- Past getItemID 4");
+                startActivityForResult(goToThermostatEdit, 1); // TODO forResult()
+            }
+        });
+        
         Button buttonAddTemperature = findViewById(R.id.buttonAddTemperature);
     
         buttonAddTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> dataToDB = new ArrayList<>();
+                Intent goToThermostatAdd = new Intent(ThermostatActivity.this, ThermostatAddActivity.class);
+                startActivity(goToThermostatAdd); // TODO forResult()
+                
+                /*ArrayList<String> dataToDB = new ArrayList<>();
                 dataToDB.add("Friday");
                 dataToDB.add("6:00");
                 dataToDB.add("20");
-                databaseHelper.addThermostatDataToDB(dataToDB);
-                refreshThermostatEntries();
+                databaseHelper.addThermostatDataToDB(dataToDB);*/
             }
         });
+    }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(ACTIVITY_NAME, "-- In onResume()");
+        
+        refreshThermostatEntries();
     }
     
     private void refreshThermostatEntries() {

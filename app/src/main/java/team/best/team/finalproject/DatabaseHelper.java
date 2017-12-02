@@ -82,6 +82,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     
+    // -------------
+    //  GET ITEM ID
+    // -------------
+    
+    public int getThermostatItemID(int position) {
+        return getItemID(position, THERMOSTAT_TABLE_NAME);
+    }
+    
+    /**
+     * Get id from database given position.
+     * Removing entries from db will make id != position, so getItemID is needed
+     * This is for internal use only. public get___ItemID will call this private method.
+     *
+     * @param position  Position of entry in database that you want the ID of
+     * @param tableName Table that will be queried. Must be one of the class constants listed
+     * @return id of database entry at given position
+     */
+    private int getItemID(int position, String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In getItemID()");
+        
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
+        
+        if (cursor.moveToPosition(position)) {
+            return Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID)));
+        }
+        else {
+            Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in position " + position);
+            return -1;
+        }
+    }
+    
+    
     // -----------------
     //  ADD TO DATABASE
     // -----------------
@@ -94,7 +126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     /**
      * Adds the ArrayList of Strings into the given database.
-     * This is for internal use only. public add___DataToDB's will call this private method.
+     * This is for internal use only. public add___DataToDB will call this private method.
      *
      * @param dataToDB  ArrayList of Strings that will be inserted into database
      * @param tableName Table that data will be inserted into
@@ -120,25 +152,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     public ArrayList<ArrayList<String>> getThermostatDataFromDB() {
         Log.i(ACTIVITY_NAME, "-- In getThermostatDataFromDB()");
-        
-        return getDataFromTable(THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
+    
+        return getDataFromTable(THERMOSTAT_TABLE_NAME);
     }
     
     /**
-     * Goes through the specified table in the database and returns all the data.
-     * This is for internal use only. public get___DataFromDB's will call this private method.
+     * Goes through the specified table in the database and returns a 2D ArrayList of the data.
+     * This is for internal use only. public get___DataFromDB will call this private method.
      *
      * @param tableName Table that will be queried. Must be one of the class constants listed
-     * @param columns   Columns that will be queried from the given table
-     * @return 2D ArrayList of Strings with all of the data from the given columns of the given table
+     * @return 2D ArrayList of Strings with all of the data from the given table
      */
-    private ArrayList<ArrayList<String>> getDataFromTable(String tableName, String[] columns) {
+    private ArrayList<ArrayList<String>> getDataFromTable(String tableName) {
         Log.i(ACTIVITY_NAME, "-- In getDataFromTable()");
         
         ArrayList<ArrayList<String>> dataFromDB = new ArrayList<>();
         
         Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
-        //Cursor cursor = database.query(tableName, columns, null, null, null, null, null);
         Log.i(ACTIVITY_NAME, "-- In getDataFromTable(), queried database successfully. # of rows: " + cursor.getCount());
         if (cursor.moveToFirst()) {
             for (int row = 0; row < cursor.getCount(); row++) {
@@ -155,7 +185,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.moveToNext();
             }
         }
-        
+    
+        cursor.close();
         return dataFromDB;
     }
     
@@ -163,6 +194,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // ----------------------
     //  REMOVE FROM DATABASE
     // ----------------------
+    
+    
+    // ------------------------
+    //  REPLACE DATABASE ENTRY
+    // ------------------------
     
     
 }

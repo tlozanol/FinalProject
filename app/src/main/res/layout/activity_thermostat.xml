@@ -11,17 +11,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/thermostatTitle" />
+        android:text="@string/thermostatEntriesTitle" />
 
     <ListView
         android:id="@+id/listThermostat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonAddTemperature"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textThermostatTitle"
-        android:layout_marginTop="35dp" />
+        android:layout_above="@+id/buttonAddTemperature"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp" />
 
     <Button
         android:id="@+id/buttonAddTemperature"

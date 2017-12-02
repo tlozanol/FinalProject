@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonCancelThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/thermostatCancel" />
+
+    <TextView
+        android:id="@+id/textThermostatTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonCancelThermostatEntry"
+        android:layout_toEndOf="@+id/buttonCancelThermostatEntry"
+        android:layout_toStartOf="@+id/buttonSaveThermostatEntry"
+        android:text="@string/thermostatEditTitle"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/buttonSaveThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/thermostatSave" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonDeleteThermostatEntry"
+        android:layout_below="@+id/textThermostatTitle"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp" />
+
+    <Button
+        android:id="@+id/buttonDeleteThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/thermostatDeleteEntry" />
+
+</RelativeLayout>

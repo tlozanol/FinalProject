@@ -20,6 +20,8 @@
         <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".ThermostatActivity" />
         <activity android:name=".AutomobileActivity" />
+        <activity android:name=".ThermostatAddActivity" />
+        <activity android:name=".ThermostatEditActivity" />
     </application>
 
 </manifest>

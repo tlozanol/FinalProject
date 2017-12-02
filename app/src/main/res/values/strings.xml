@@ -20,7 +20,15 @@
 
 
     <!-- Thermostat -->
-    <string name="thermostatTitle">Thermostat</string>
+    <string name="thermostatEntriesTitle">Thermostat Entries</string>
+    <string name="thermostatEditTitle">Edit Entry</string>
+    <string name="thermostatAddTitle">Add Entry</string>
+    <string name="thermostatDeleteEntry">Delete Entry</string>
+    <string name="thermostatCancel">Cancel</string>
+    <string name="thermostatSave">Save</string>
+    <string name="thermostatDay">Day</string>
+    <string name="thermostatTime">Time</string>
+    <string name="thermostatTemperature">Temperature</string>
 
 
     <!-- Automobile -->
