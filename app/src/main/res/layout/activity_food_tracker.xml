@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@id/editTextFoodTracker"
+        android:layout_toStartOf="@id/editTextFoodTracker"
+        android:text="@string/FTEditTxtenter_name_of_new_food"
 
         />
 
@@ -32,6 +33,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="Enter Information" />
+        android:text="@string/FTBtnadd_new_food_item" />
 
 </RelativeLayout>
