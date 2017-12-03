@@ -177,7 +177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 // add all the values of each column to ArrayList that will be returned
                 for (int col = 0; col < cursor.getColumnCount(); col++) {
                     String cellRetrieved = cursor.getString(col);
-                    Log.i(ACTIVITY_NAME, "-- -- Got: " + cellRetrieved);
+                    //Log.i(ACTIVITY_NAME, "-- -- Got: " + cellRetrieved);
                     dataFromDB.get(row).add(cellRetrieved);
                 }
                 

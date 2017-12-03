@@ -75,8 +75,8 @@ public class ThermostatActivity extends Activity {
         thermostatEntryBundle.putBoolean("InAdd", true);
         thermostatEntryBundle.putInt("ID", -1);
         thermostatEntryBundle.putString("Day", " ");
-        thermostatEntryBundle.putString("Time", " ");
-        thermostatEntryBundle.putString("Temperature", " ");
+        thermostatEntryBundle.putString("Time", "");
+        thermostatEntryBundle.putString("Temperature", "");
         
         return thermostatEntryBundle;
     }
@@ -114,16 +114,16 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Add
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Add: Save");
-            
+    
                 String newDay = data.getStringExtra("Day");
                 String newTime = data.getStringExtra("Time");
                 String newTemperature = data.getStringExtra("Temperature");
-            
+    
                 ArrayList<String> dataToDB = new ArrayList<>();
                 dataToDB.add(newDay);
                 dataToDB.add(newTime);
                 dataToDB.add(newTemperature);
-            
+    
                 databaseHelper.addThermostatDBEntry(dataToDB);
             }
             // Delete is not possible in Add
@@ -133,23 +133,23 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Edit
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Save");
-            
+    
                 int IDToUpdate = data.getIntExtra("ID", 1);
                 String newDay = data.getStringExtra("Day");
                 String newTime = data.getStringExtra("Time");
                 String newTemperature = data.getStringExtra("Temperature");
-            
+    
                 ArrayList<String> dataToUpdateInDB = new ArrayList<>();
                 dataToUpdateInDB.add(newDay);
                 dataToUpdateInDB.add(newTime);
                 dataToUpdateInDB.add(newTemperature);
-            
+    
                 databaseHelper.updateThermostatDBEntry(IDToUpdate, dataToUpdateInDB);
             }
             else if (resultCode == THERMOSTAT_RESULT_DELETE) {
                 // Delete in Edit
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Delete");
-            
+    
                 int IDToDelete = data.getIntExtra("ID", 4);
                 databaseHelper.deleteThermostatDBEntry(IDToDelete);
             }
@@ -183,7 +183,7 @@ public class ThermostatActivity extends Activity {
         
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            Log.i(ACTIVITY_NAME, "-- ThermostatListAdapter getView()");
+            //Log.i(ACTIVITY_NAME, "-- ThermostatListAdapter getView()");
             LayoutInflater inflater = ThermostatActivity.this.getLayoutInflater();
             View result = inflater.inflate(R.layout.thermostat_entry, null);
             
