@@ -9,8 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/thermostatCancel" />
+        android:text="@string/cancel" />
 
+    <!-- Title is Edit by default, will be changed to Add if in Add -->
     <TextView
         android:id="@+id/textThermostatAddOrEditTitle"
         android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:text="@string/thermostatSave" />
+        android:text="@string/save" />
 
 
     <GridLayout
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:labelFor="@+id/editTextThermostatDay"
-            android:text="@string/thermostatDay" />
+            android:text="@string/day" />
 
         <TextView
             android:id="@+id/textThermostatTime"
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:labelFor="@+id/editTextThermostatTime"
-            android:text="@string/thermostatTime" />
+            android:text="@string/time" />
 
         <TextView
             android:id="@+id/textThermostatTemperature"
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:labelFor="@+id/editTextThermostatTemperature"
-            android:text="@string/thermostatTemperature" />
+            android:text="@string/temperature" />
 
 
         <EditText
@@ -71,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:ems="6"
-            android:inputType="date" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextThermostatTime"

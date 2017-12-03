@@ -19,17 +19,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textThermostatTitle"
-        android:layout_above="@+id/buttonAddTemperature"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="35dp" />
+        android:layout_below="@+id/buttonAddTemperature"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="35dp" />
 
     <Button
         android:id="@+id/buttonAddTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:text="Add Temp to Database" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/textThermostatTitle"
+        android:text="@string/add" />
 
 </RelativeLayout>
