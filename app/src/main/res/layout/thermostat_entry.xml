@@ -7,20 +7,20 @@
         android:id="@+id/textThermostatEntryDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp" />
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/textThermostatEntryTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/textThermostatEntryDay" />
 
     <TextView
         android:id="@+id/textThermostatEntryTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/textThermostatEntryTime" />
 
 </RelativeLayout>
