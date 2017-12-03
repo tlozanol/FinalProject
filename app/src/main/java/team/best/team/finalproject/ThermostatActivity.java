@@ -45,26 +45,10 @@ public class ThermostatActivity extends Activity {
         listThermostat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long position) {
-                long clickedItemID = databaseHelper.getThermostatItemID((int) position);
-                Log.i(ACTIVITY_NAME, "-- Past getItemID 1");
-                String clickedDay = thermostatArray.get((int) position).get(0);
-                String clickedTime = thermostatArray.get((int) position).get(1);
-                String clickedTemperature = thermostatArray.get((int) position).get(2);
-            
-                Log.i(ACTIVITY_NAME, "-- Past getItemID 2");
-            
-                Bundle thermostatEntryBundle = new Bundle();
-                thermostatEntryBundle.putLong("ID", clickedItemID);
-                thermostatEntryBundle.putString("Day", clickedDay);
-                thermostatEntryBundle.putString("Time", clickedTime);
-                thermostatEntryBundle.putString("Temperature", clickedTemperature);
-            
-                Log.i(ACTIVITY_NAME, "-- Past getItemID 3");
-            
-                Intent goToThermostatEdit = new Intent(ThermostatActivity.this, ThermostatEditActivity.class);
+                Bundle thermostatEntryBundle = createThermostatEditBundle((int) position);
+                Intent goToThermostatEdit = new Intent(ThermostatActivity.this, ThermostatAddOrEditActivity.class);
                 goToThermostatEdit.putExtras(thermostatEntryBundle);
-                Log.i(ACTIVITY_NAME, "-- Past getItemID 4");
-                startActivityForResult(goToThermostatEdit, 1); // TODO forResult()
+                startActivityForResult(goToThermostatEdit, 1);
             }
         });
         
@@ -73,16 +57,39 @@ public class ThermostatActivity extends Activity {
         buttonAddTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToThermostatAdd = new Intent(ThermostatActivity.this, ThermostatAddActivity.class);
-                startActivity(goToThermostatAdd); // TODO forResult()
-                
-                /*ArrayList<String> dataToDB = new ArrayList<>();
-                dataToDB.add("Friday");
-                dataToDB.add("6:00");
-                dataToDB.add("20");
-                databaseHelper.addThermostatDataToDB(dataToDB);*/
+                Bundle thermostatEntryBundle = createThermostatAddBundle();
+                Intent goToThermostatAdd = new Intent(ThermostatActivity.this, ThermostatAddOrEditActivity.class);
+                goToThermostatAdd.putExtras(thermostatEntryBundle);
+                startActivityForResult(goToThermostatAdd, 2);
             }
         });
+    }
+    
+    private Bundle createThermostatAddBundle() {
+        Bundle thermostatEntryBundle = new Bundle();
+        thermostatEntryBundle.putBoolean("Edit", false);
+        thermostatEntryBundle.putLong("ID", -1);
+        thermostatEntryBundle.putString("Day", " ");
+        thermostatEntryBundle.putString("Time", " ");
+        thermostatEntryBundle.putString("Temperature", " ");
+        
+        return thermostatEntryBundle;
+    }
+    
+    private Bundle createThermostatEditBundle(int position) {
+        long clickedItemID = databaseHelper.getThermostatItemID(position);
+        String clickedDay = thermostatArray.get(position).get(1);
+        String clickedTime = thermostatArray.get(position).get(2);
+        String clickedTemperature = thermostatArray.get(position).get(3);
+        
+        Bundle thermostatEntryBundle = new Bundle();
+        thermostatEntryBundle.putBoolean("Edit", true);
+        thermostatEntryBundle.putLong("ID", clickedItemID);
+        thermostatEntryBundle.putString("Day", clickedDay);
+        thermostatEntryBundle.putString("Time", clickedTime);
+        thermostatEntryBundle.putString("Temperature", clickedTemperature);
+        
+        return thermostatEntryBundle;
     }
     
     @Override
@@ -91,6 +98,19 @@ public class ThermostatActivity extends Activity {
         Log.i(ACTIVITY_NAME, "-- In onResume()");
         
         refreshThermostatEntries();
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(ACTIVITY_NAME, "-- In onActivityResult()");
+        // TODO request and result codes for Add/Edit & Cancel/Save/Delete
+        
+        /*ArrayList<String> dataToDB = new ArrayList<>();
+        dataToDB.add("Friday");
+        dataToDB.add("6:00");
+        dataToDB.add("20");
+        databaseHelper.addThermostatDataToDB(dataToDB);*/
     }
     
     private void refreshThermostatEntries() {
