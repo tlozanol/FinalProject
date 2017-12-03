@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 1;
+    private static final int VERSION_NUM = 3;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
     
@@ -82,32 +82,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     
-    // -----------------
-    //  ADD TO DATABASE
-    // -----------------
+    // -------------
+    //  GET ITEM ID
+    // -------------
     
-    public void addThermostatDataToDB(ArrayList<String> dataToDB) {
-        Log.i(ACTIVITY_NAME, "-- In addThermostatDataToDB()");
+    public int getThermostatItemID(int position) {
+        return getItemID(position, THERMOSTAT_TABLE_NAME);
+    }
+    
+    /**
+     * Get id from database given position.
+     * Removing entries from db will make id != position, so getItemID is needed
+     * This is for internal use only. public get___ItemID will call this private method.
+     *
+     * @param position  Position of entry in database that you want the ID of
+     * @param tableName Table that will be queried. Must be one of the class constants listed
+     * @return id of database entry at given position
+     */
+    private int getItemID(int position, String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In getItemID()");
         
-        addDataToDB(dataToDB, THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
+        
+        if (cursor.moveToPosition(position)) {
+            return Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID)));
+        }
+        else {
+            Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in position " + position);
+            return -1;
+        }
+    }
+    
+    
+    // --------------------
+    //  ADD DATABASE ENTRY
+    // --------------------
+    
+    public void addThermostatDBEntry(ArrayList<String> dataToDB) {
+        Log.i(ACTIVITY_NAME, "-- In addThermostatDBEntry()");
+        
+        addDBEntry(dataToDB, THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
     }
     
     /**
      * Adds the ArrayList of Strings into the given database.
-     * This is for internal use only. public add___DataToDB's will call this private method.
+     * This is for internal use only. public add___DBEntry will call this private method.
      *
      * @param dataToDB  ArrayList of Strings that will be inserted into database
      * @param tableName Table that data will be inserted into
      * @param columns   Columns that data will be inserted into
      */
-    private void addDataToDB(ArrayList<String> dataToDB, String tableName, String[] columns) {
-        Log.i(ACTIVITY_NAME, "-- In addDataToDB()");
+    private void addDBEntry(ArrayList<String> dataToDB, String tableName, String[] columns) {
+        Log.i(ACTIVITY_NAME, "-- In addDBEntry()");
         
         ContentValues values = new ContentValues();
         
         for (int i = 0; i < columns.length; i++) {
             values.put(columns[i], dataToDB.get(i));
-            Log.i(ACTIVITY_NAME, "-- -- Added: " + dataToDB.get(i));
         }
         
         database.insertWithOnConflict(tableName, "NULL FIELD", values, SQLiteDatabase.CONFLICT_IGNORE);
@@ -115,56 +146,105 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     
     // -------------------
-    //  GET FROM DATABASE
+    //  GET DATABASE DATA
     // -------------------
     
-    public ArrayList<ArrayList<String>> getThermostatDataFromDB() {
-        Log.i(ACTIVITY_NAME, "-- In getThermostatDataFromDB()");
+    public ArrayList<ArrayList<String>> getThermostatDBData() {
+        Log.i(ACTIVITY_NAME, "-- In getThermostatDBData()");
         
-        return getDataFromTable(THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
+        return getDBData(THERMOSTAT_TABLE_NAME);
     }
     
     /**
-     * Goes through the specified table in the database and returns all the data.
-     * This is for internal use only. public get___DataFromDB's will call this private method.
+     * Goes through the specified table in the database and returns a 2D ArrayList of the data.
+     * This is for internal use only. public get___DBData will call this private method.
      *
      * @param tableName Table that will be queried. Must be one of the class constants listed
-     * @param columns   Columns that will be queried from the given table
-     * @return 2D ArrayList of Strings with all of the data from the given columns of the given table
+     * @return 2D ArrayList of Strings with all of the data from the given table
      */
-    private ArrayList<ArrayList<String>> getDataFromTable(String tableName, String[] columns) {
-        Log.i(ACTIVITY_NAME, "-- In getDataFromTable()");
+    private ArrayList<ArrayList<String>> getDBData(String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In getDBData()");
         
         ArrayList<ArrayList<String>> dataFromDB = new ArrayList<>();
         
         Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
-        //Cursor cursor = database.query(tableName, columns, null, null, null, null, null);
-        Log.i(ACTIVITY_NAME, "-- In getDataFromTable(), queried database successfully. # of rows: " + cursor.getCount());
+        Log.i(ACTIVITY_NAME, "-- In getDBData(), queried database successfully. # of rows: " + cursor.getCount());
         if (cursor.moveToFirst()) {
             for (int row = 0; row < cursor.getCount(); row++) {
                 
                 dataFromDB.add(new ArrayList<String>());
                 
                 // add all the values of each column to ArrayList that will be returned
-                for (int col = 0; col < columns.length; col++) {
-                    String cellRetrieved = cursor.getString(cursor.getColumnIndex(columns[col]));
-                    Log.i(ACTIVITY_NAME, "-- -- Got: " + cellRetrieved);
+                for (int col = 0; col < cursor.getColumnCount(); col++) {
+                    String cellRetrieved = cursor.getString(col);
+                    //Log.i(ACTIVITY_NAME, "-- -- Got: " + cellRetrieved);
                     dataFromDB.get(row).add(cellRetrieved);
                 }
                 
                 cursor.moveToNext();
             }
         }
-        
+    
+        cursor.close();
         return dataFromDB;
     }
     
     
-    // ----------------------
-    //  REMOVE FROM DATABASE
-    // ----------------------
+    // -----------------------
+    //  DELETE DATABASE ENTRY
+    // -----------------------
+    
+    public void deleteThermostatDBEntry(int ID) {
+        Log.i(ACTIVITY_NAME, "-- In deleteThermostatDBEntry()");
+        
+        deleteDBEntry(ID, THERMOSTAT_TABLE_NAME);
+    }
+    
+    /**
+     * Deletes the row associated to the given ID.
+     * This is for internal use only. public delete___DBEntry will call this private method.
+     *
+     * @param ID        Primary Key ID that will be deleted from table
+     * @param tableName Table that will be queried. Must be one of the class constants listed
+     */
+    private void deleteDBEntry(int ID, String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In deleteDBEntry()");
+        
+        //database.execSQL("DELETE FROM " + tableName + " WHERE " + KEY_ID + " = " + ID);
+        database.delete(tableName, KEY_ID + " = " + ID, null);
+    }
     
     
+    // -----------------------
+    //  UPDATE DATABASE ENTRY
+    // -----------------------
+    
+    public void updateThermostatDBEntry(int ID, ArrayList<String> newData) {
+        Log.i(ACTIVITY_NAME, "-- In updateThermostatDBEntry()");
+        
+        updateDBEntry(ID, newData, THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
+    }
+    
+    /**
+     * Updates the row with the given ID with the ArrayList of new data
+     * This is for internal use only. public update___DBEntry will call this private method.
+     *
+     * @param ID        Primary Key ID associated to row being updated.
+     * @param newData   ArrayList of Strings of new entries that will replace old row
+     * @param tableName Table that will be queried. Must be one of the class constants listed
+     * @param columns   Columns that data will be replaced
+     */
+    private void updateDBEntry(int ID, ArrayList<String> newData, String tableName, String[] columns) {
+        Log.i(ACTIVITY_NAME, "-- In updateDBEntry()");
+        
+        ContentValues values = new ContentValues();
+        
+        for (int i = 0; i < columns.length; i++) {
+            values.put(columns[i], newData.get(i));
+        }
+        
+        database.updateWithOnConflict(tableName, values, KEY_ID + " = " + ID, null, SQLiteDatabase.CONFLICT_IGNORE);
+    }
 }
 
 

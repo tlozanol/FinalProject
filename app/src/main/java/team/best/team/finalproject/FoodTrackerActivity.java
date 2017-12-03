@@ -12,14 +12,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 public class FoodTrackerActivity extends Activity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_tracker);
-
+        
         Button btnFoodTracker = (Button) findViewById(R.id.btnFoodTrackerEnter);
         EditText editTextFoodTracker = (EditText) findViewById(R.id.editTextFoodTracker);
+
         final ListView ListFood = (ListView) findViewById(R.id.listFood);
         String[] ItemMenu = {"Apple", "Banana"};
 
@@ -58,6 +59,13 @@ public class FoodTrackerActivity extends Activity {
         //});
 
 
+
+        ListView ListFood = (ListView) findViewById(R.id.listFood);
+        String[] ItemMenu = {"Apple", "Banana", "Carrot", "Celeri", "Grapes", "Mango", "Orange"};
+        
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ItemMenu);
+        ListFood.setAdapter(listViewAdapter);
+        
 
     }
 }
