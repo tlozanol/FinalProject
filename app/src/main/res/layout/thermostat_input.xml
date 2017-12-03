@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonCancelThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/cancel" />
+
+    <!-- Title is Edit by default, will be changed to Add if in Add -->
+    <TextView
+        android:id="@+id/textThermostatAddOrEditTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonCancelThermostatEntry"
+        android:layout_toEndOf="@+id/buttonCancelThermostatEntry"
+        android:layout_toStartOf="@+id/buttonSaveThermostatEntry"
+        android:text="@string/thermostatEditTitle"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/buttonSaveThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/save" />
+
+
+    <GridLayout
+        android:id="@+id/gridThermostatInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textThermostatAddOrEditTitle"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="35dp"
+        android:columnCount="3"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/textThermostatDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:labelFor="@+id/editTextThermostatDay"
+            android:text="@string/day" />
+
+        <TextView
+            android:id="@+id/textThermostatTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:labelFor="@+id/editTextThermostatTime"
+            android:text="@string/time" />
+
+        <TextView
+            android:id="@+id/textThermostatTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:labelFor="@+id/editTextThermostatTemperature"
+            android:text="@string/temperature" />
+
+
+        <EditText
+            android:id="@+id/editTextThermostatDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ems="6"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextThermostatTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ems="6"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/editTextThermostatTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ems="6"
+            android:inputType="numberSigned" />
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/buttonDeleteThermostatEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gridThermostatInput"
+        android:layout_centerHorizontal="true"
+        android:text="@string/thermostatDeleteEntry" />
+
+</RelativeLayout>
