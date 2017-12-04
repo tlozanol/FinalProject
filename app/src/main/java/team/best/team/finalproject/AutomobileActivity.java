@@ -13,9 +13,17 @@ public class AutomobileActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile);
+
+        Button seeHistoryDB = findViewById(R.id.seeHistory);
+        seeHistoryDB.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                
+            }
+        });
     }
 
-    Button seeHistoryDB = findViewById(R.id.seeHistory);
+
 
 
 }
