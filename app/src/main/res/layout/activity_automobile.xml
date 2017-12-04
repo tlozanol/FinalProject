@@ -6,12 +6,70 @@
     tools:context="team.best.team.finalproject.AutomobileActivity">
 
     <TextView
-        android:id="@+id/textAutomobileTitle"
+        android:id="@+id/carModelapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/automobileTitle" />
+        android:text="@string/carModel"
+        android:layout_above="@+id/gasCar"
+        android:layout_alignStart="@+id/gasCar"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:id="@+id/gasCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gas"
+        android:layout_above="@+id/gasPrice"
+        android:layout_alignStart="@+id/gasPrice"
+        android:layout_marginBottom="17dp" />
+
+    <TextView
+        android:id="@+id/gasPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:layout_above="@+id/liters"
+        android:layout_alignStart="@+id/liters"
+        android:layout_marginBottom="13dp" />
+
+    <TextView
+        android:id="@+id/liters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/liters"
+        android:layout_above="@+id/avgkm"
+        android:layout_alignStart="@+id/avgkm"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/avgkm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/avgKms"
+        android:layout_above="@+id/saveButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="62dp" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/savePurchase"
+        android:layout_above="@+id/seeHistory"
+        android:layout_alignEnd="@+id/seeHistory"
+        android:layout_marginBottom="11dp" />
+
+    <Button
+        android:id="@+id/seeHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/seeHistory"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="91dp" />
+
+
 
 </RelativeLayout>
