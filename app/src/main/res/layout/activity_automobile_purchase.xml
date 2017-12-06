@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team.best.team.finalproject.Automobile_History">
+    tools:context="team.best.team.finalproject.AutomobilePurchase">
 
     <TextView
         android:id="@+id/carModelapp"
@@ -80,7 +80,7 @@
         android:textSize="14sp"
         android:layout_above="@+id/gasText"
         android:layout_alignStart="@+id/gasText"
-        />
+    />
 
     <EditText
         android:id="@+id/gasText"
@@ -89,7 +89,7 @@
         android:layout_alignBaseline="@+id/gasCar"
         android:layout_alignBottom="@+id/gasCar"
         android:layout_toEndOf="@+id/avgkm"
-        android:text="40 liters"
+        android:hint="@string/inputGas"
         android:textSize="14sp" />
 
     <EditText
@@ -99,7 +99,7 @@
         android:layout_alignBaseline="@+id/gasPrice"
         android:layout_alignBottom="@+id/gasPrice"
         android:layout_toEndOf="@+id/avgkm"
-        android:text="1.15 CAD per liter"
+        android:hint="@string/inputPrice"
         android:textSize="14sp" />
 
     <EditText
@@ -109,7 +109,7 @@
         android:layout_alignBaseline="@+id/liters"
         android:layout_alignBottom="@+id/liters"
         android:layout_toEndOf="@+id/avgkm"
-        android:text="40 liters"
+        android:hint="@string/inputLiters"
         android:textSize="14sp" />
 
     <EditText
@@ -119,7 +119,7 @@
         android:layout_alignBaseline="@+id/avgkm"
         android:layout_alignBottom="@+id/avgkm"
         android:layout_toEndOf="@+id/avgkm"
-        android:text="300 km average"
+        android:hint="@string/inputAvgKm"
         android:textSize="14sp" />
 
 </RelativeLayout>

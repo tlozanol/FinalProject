@@ -58,6 +58,7 @@
 
 
     <!-- Automobile -->
+    <string name="automobileEntriesTitle">Automobile Entries</string>
     <string name="carModel">Car Model</string>
     <string name="gas">Gas Amount: </string>
     <string name="price">Gas Price: </string>
