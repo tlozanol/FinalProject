@@ -1,13 +1,128 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="15dp"
     tools:context="team.best.team.finalproject.ActivityViewDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textActivityDetailTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/activityDetailTitle"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textActivityDateLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activityDateHint"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/textActivityDetailTitle"
+        android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/textActivityDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/textActivityDateLabel"
+            android:layout_below="@id/textActivityDetailTitle"
+            android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textActivityLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activityActivityLabel"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textActivityDateLabel"
+        android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/textActivityActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/textActivityLabel"
+            android:layout_below="@+id/textActivityDate"
+            android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/textActivityTimeLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activityTime"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/textActivityLabel"
+        android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/textActivityTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@id/textActivityTimeLabel"
+            android:layout_below="@id/textActivityActivity"
+            android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/textActivityNotesLabel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activityNotesTitle"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/textActivityTimeLabel"
+        android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/textActivityNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/black"
+            android:layout_toEndOf="@+id/textActivityNotesLabel"
+            android:layout_below="@id/textActivityTime"
+            android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:id="@+id/buttonActivityEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonDeleteActivity"
+        android:layout_below="@+id/textActivityNotesLabel"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/buttonActivityDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonEditActivity"
+        android:layout_below="@+id/textActivityNotesLabel"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
