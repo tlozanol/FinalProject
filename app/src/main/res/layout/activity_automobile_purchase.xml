@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="team.best.team.finalproject.AutomobilePurchase">
+
+    <TextView
+        android:id="@+id/carModelapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gasCar"
+        android:layout_alignStart="@+id/gasCar"
+        android:layout_marginBottom="20dp"
+        android:text="@string/carModel" />
+
+    <TextView
+        android:id="@+id/gasCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gasPrice"
+        android:layout_alignStart="@+id/gasPrice"
+        android:layout_marginBottom="20dp"
+        android:text="@string/gas" />
+
+    <TextView
+        android:id="@+id/gasPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/liters"
+        android:layout_alignStart="@+id/liters"
+        android:layout_marginBottom="20dp"
+        android:text="@string/price" />
+
+    <TextView
+        android:id="@+id/liters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/avgkm"
+        android:layout_alignStart="@+id/avgkm"
+        android:layout_marginBottom="20dp"
+        android:text="@string/liters" />
+
+    <TextView
+        android:id="@+id/avgkm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="62dp"
+        android:layout_marginStart="25dp"
+        android:text="@string/avgKms" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seeHistory"
+        android:layout_alignEnd="@+id/seeHistory"
+        android:layout_marginBottom="11dp"
+        android:text="@string/savePurchase" />
+
+    <Button
+        android:id="@+id/seeHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="91dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/seeHistory" />
+
+    <Spinner
+        android:id="@+id/carText"
+        android:drawSelectorOnTop="true"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="@string/inputGas"
+        android:textSize="14sp"
+        android:layout_above="@+id/gasText"
+        android:layout_alignStart="@+id/gasText"
+    />
+
+    <EditText
+        android:id="@+id/gasText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/gasCar"
+        android:layout_alignBottom="@+id/gasCar"
+        android:layout_toEndOf="@+id/avgkm"
+        android:hint="@string/inputGas"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/priceText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/gasPrice"
+        android:layout_alignBottom="@+id/gasPrice"
+        android:layout_toEndOf="@+id/avgkm"
+        android:hint="@string/inputPrice"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/litersText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/liters"
+        android:layout_alignBottom="@+id/liters"
+        android:layout_toEndOf="@+id/avgkm"
+        android:hint="@string/inputLiters"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/avgKmsText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/avgkm"
+        android:layout_alignBottom="@+id/avgkm"
+        android:layout_toEndOf="@+id/avgkm"
+        android:hint="@string/inputAvgKm"
+        android:textSize="14sp" />
+
+</RelativeLayout>

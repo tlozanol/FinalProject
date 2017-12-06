@@ -29,7 +29,6 @@
     <string name="foodTrackerTitle">Food Tracker</string>
     <string name="button">button_Enter</string>
 
-
     <!-- Activity Tracker -->
     <string name="activityTrackerTitle">Activity Tracker</string>
     <string name="activityHistoryTitle">Your activity history</string>
@@ -82,5 +81,31 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Activity Tracker</string>
+
+
+    <!-- Thermostat -->
+    <string name="thermostatAddTitle">Add Entry</string>
+    <string name="thermostatEditTitle">Edit Entry</string>
+    <string name="thermostatDeleteEntry">Delete Entry</string>
+    <string name="thermostatEntriesTitle">Thermostat Entries</string>
+
+
+    <!-- Automobile -->
+    <string name="automobileEntriesTitle">Automobile Entries</string>
+    <string name="carModel">Car Model</string>
+    <string name="gas">Gas Amount: </string>
+    <string name="price">Gas Price: </string>
+    <string name="liters">Liters Purchased: </string>
+    <string name="avgKms">Average Kilometers: </string>
+    <string name="savePurchase">Save Purchase</string>
+    <string name="seeHistory">See History</string>
+    <string name="inputGas">How much gas?</string>
+    <string name="inputPrice">How much per liter?</string>
+    <string name="inputLiters">How many liters?</string>
+    <string name="inputAvgKm">Kilometers per Liter</string>
+
 
 </resources>
