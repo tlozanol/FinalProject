@@ -65,6 +65,10 @@
     <string name="avgKms">Average Kilometers: </string>
     <string name="savePurchase">Save Purchase</string>
     <string name="seeHistory">See History</string>
+    <string name="inputGas">How much gas?</string>
+    <string name="inputPrice">How much per liter?</string>
+    <string name="inputLiters">How many liters?</string>
+    <string name="inputAvgKm">Kilometers per Liter</string>
 
 
 </resources>
