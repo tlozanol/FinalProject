@@ -17,16 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoodTrackerActivity" />
-        <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".ThermostatActivity" />
         <activity android:name=".AutomobileActivity" />
+        <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".FoodTrAppleInfoActivity" />
         <activity android:name=".FoodTrBananaInfoActivity" />
         <activity android:name=".ThermostatAddOrEditActivity" />
         <activity android:name=".ActivityAddActivity" />
-        <activity android:name=".ActivityViewHistory"></activity>
+        <activity android:name=".ActivityViewHistory" />
         <activity android:name=".Automobile_History" />
-        <activity android:name=".AutomobilePurchase"></activity>
+        <activity android:name=".AutomobilePurchase" />
     </application>
 
 </manifest>

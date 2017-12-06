@@ -28,6 +28,23 @@
     <!-- Food Tracker -->
     <string name="foodTrackerTitle">Food Tracker</string>
     <string name="button">button_Enter</string>
+    <string name="FTapple">APPLE</string>
+    <string name="FTLabelAppletotal_fat">Total fat</string>
+    <string name="FTAppleLabelcarbohydrate">Carbohydrate</string>
+    <string name="FTBananaLabelcalories">Calories</string>
+    <string name="FTBananaLabeltotal_fat">Total fat</string>
+    <string name="FTBananaLabelcarbohydrate">Carbohydrate</string>
+    <string name="FTbananaLabel">BANANA</string>
+    <string name="FTBananaCalValue">95</string>
+    <string name="FTBananaTotalFatValue">0g</string>
+    <string name="FTBananaCarbValue">25g</string>
+    <string name="FTAppleCalLabel">Calories</string>
+    <string name="FTAppleCalValue">95</string>
+    <string name="FTAppleTotalFatValue">0g</string>
+    <string name="FTAppleCarbValue">25g</string>
+    <string name="FTBtnadd_new_food_item">Add New Food Item</string>
+    <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
+
 
     <!-- Activity Tracker -->
     <string name="activityTrackerTitle">Activity Tracker</string>
@@ -62,38 +79,6 @@
 
     <!-- Automobile -->
     <string name="automobileTitle">Automobile</string>
-    <string name="FTapple">APPLE</string>
-    <string name="FTLabelAppletotal_fat">Total fat</string>
-    <string name="FTAppleLabelcarbohydrate">Carbohydrate</string>
-    <string name="FTBananaLabelcalories">Calories</string>
-    <string name="FTBananaLabeltotal_fat">Total fat</string>
-    <string name="FTBananaLabelcarbohydrate">Carbohydrate</string>
-    <string name="FTbananaLabel">BANANA</string>
-    <string name="FTBananaCalValue">95</string>
-    <string name="FTBananaTotalFatValue">0g</string>
-    <string name="FTBananaCarbValue">25g</string>
-    <string name="FTAppleCalLabel">Calories</string>
-    <string name="FTAppleCalValue">95</string>
-    <string name="FTAppleTotalFatValue">0g</string>
-    <string name="FTAppleCarbValue">25g</string>
-    <string name="FTBtnadd_new_food_item">Add New Food Item</string>
-    <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <!-- Activity Tracker -->
-    <string name="activityTrackerTitle">Activity Tracker</string>
-
-
-    <!-- Thermostat -->
-    <string name="thermostatAddTitle">Add Entry</string>
-    <string name="thermostatEditTitle">Edit Entry</string>
-    <string name="thermostatDeleteEntry">Delete Entry</string>
-    <string name="thermostatEntriesTitle">Thermostat Entries</string>
-
-
-    <!-- Automobile -->
     <string name="automobileEntriesTitle">Automobile Entries</string>
     <string name="carModel">Car Model</string>
     <string name="gas">Gas Amount: </string>
@@ -107,5 +92,8 @@
     <string name="inputLiters">How many liters?</string>
     <string name="inputAvgKm">Kilometers per Liter</string>
 
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
