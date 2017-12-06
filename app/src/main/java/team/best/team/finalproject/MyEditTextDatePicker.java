@@ -111,6 +111,7 @@ public class MyEditTextDatePicker implements View.OnClickListener, DatePickerDia
 
     void resetDisplay()
     {
-        editTextDate.setText(R.string.activityDateHint);
+        editTextDate.setText(null);
+        editTextDate.setHint(R.string.activityDateHint);
     }
 }

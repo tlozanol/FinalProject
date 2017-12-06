@@ -51,7 +51,7 @@ public class ActivityViewDetailFragment extends Fragment
         textActivityActivity = view.findViewById(R.id.textActivityActivity);
             textActivityActivity.setText(currentActivity.get(3));
         textActivityTime = view.findViewById(R.id.textActivityTime);
-            textActivityTime.setText(currentActivity.get(2));
+            textActivityTime.setText(currentActivity.get(2) + " minutes");
         textActivityNotes = view.findViewById(R.id.textActivityNotes);
             textActivityNotes.setText(currentActivity.get(4));
 
