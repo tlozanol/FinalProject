@@ -28,6 +28,40 @@
     <!-- Food Tracker -->
     <string name="foodTrackerTitle">Food Tracker</string>
     <string name="button">button_Enter</string>
+
+    <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Activity Tracker</string>
+    <string name="activityHistoryTitle">Your activity history</string>
+    <string name="activityAddTitle">Add a new activity</string>
+    <string name="activityDetailTitle">Activity details</string>
+    <string name="activityDateHint">Date</string>
+    <string name="activityTimeHint">Time spent in minutes</string>
+    <string name="activityActivityLabel">Activity</string>
+    <string name="activityTime">Time (min)</string>
+    <string name="activityNotesTitle">Notes</string>
+    <string name="activityNotesHint">ex: This felt easy</string>
+    <string name="buttonAddActivity">Add new activity</string>
+    <string name="buttonDeleteActivity">Delete</string>
+    <string name="buttonEditActivity">Edit</string>
+    <string name="buttonActivityHistory">View activity history</string>
+    <string-array name="activitiesArray">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Swimming</item>
+        <item>Skating</item>
+    </string-array>
+
+
+    <!-- Thermostat -->
+    <string name="thermostatAddTitle">Add Entry</string>
+    <string name="thermostatEditTitle">Edit Entry</string>
+    <string name="thermostatDeleteEntry">Delete Entry</string>
+    <string name="thermostatEntriesTitle">Thermostat Entries</string>
+
+
+    <!-- Automobile -->
+    <string name="automobileTitle">Automobile</string>
     <string name="FTapple">APPLE</string>
     <string name="FTLabelAppletotal_fat">Total fat</string>
     <string name="FTAppleLabelcarbohydrate">Carbohydrate</string>
@@ -45,6 +79,8 @@
     <string name="FTBtnadd_new_food_item">Add New Food Item</string>
     <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Activity Tracker -->
     <string name="activityTrackerTitle">Activity Tracker</string>

@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    tools:context="team.best.team.finalproject.ActivityViewHistoryFragment">
+
+    <TextView
+        android:id="@+id/textActivityHistoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activityHistoryTitle"
+        android:gravity="center"
+        android:layout_margin="15dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"/>
+
+    <ListView
+        android:id="@+id/listActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

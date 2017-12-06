@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    android:gravity="center_horizontal"
+    tools:context="team.best.team.finalproject.ActivityAddActivity">
+
+    <TextView
+        android:id="@+id/textActivityAddTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activityAddTitle"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerAddActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextActivityDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:focusable="false"
+        android:hint="@string/activityDateHint"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextActivityTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/activityTimeHint"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/textActivityNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:text="@string/activityNotesTitle"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/editTextActivityNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/activityNotesHint"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"/>
+
+    <Button
+        android:id="@+id/buttonActivityCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"/>
+
+</LinearLayout>
