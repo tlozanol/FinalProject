@@ -1,8 +1,8 @@
 package team.best.team.finalproject;
 
-import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.support.design.widget.Snackbar;
 
 import java.util.ArrayList;
 
-public class ActivityAddActivity extends Activity
+public class ActivityAddActivity extends AppCompatActivity
 {
     private static final String ACTIVITY_NAME = "ActivityAddActivity: ";
 
@@ -56,9 +57,13 @@ public class ActivityAddActivity extends Activity
             {
                 if(!datePicker.isSet())
                 {
-                    Toast.makeText(ActivityAddActivity.this, "You must enter a date", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityAddActivity.this, R.string.dateToast, Toast.LENGTH_SHORT).show();
                 }
-                else //TODO: Add checks for remaining fields and throw popup to verify empty entry
+                else if(!editTime.isDirty() || !editNotes.isDirty())
+                {
+
+                }
+                else
                 {
                     activityToInput.clear();
                     activityToInput.add(datePicker.getDate());
@@ -68,12 +73,14 @@ public class ActivityAddActivity extends Activity
 
                     dbHelper.addActivityDBEntry(activityToInput);
 
-                    Toast.makeText(ActivityAddActivity.this, "Activity added", Toast.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(R.id.myCoordinatorLayout), R.string.addedSnack, Snackbar.LENGTH_LONG).show();
 
                     spinner.setSelection(0);
                     datePicker.resetDisplay();
-                    editTime.setText(R.string.activityTimeHint);
-                    editNotes.setText(R.string.activityNotesHint);
+                    editTime.setText(null);
+                    editTime.setHint(R.string.activityTimeHint);
+                    editNotes.setText(null);
+                    editNotes.setHint(R.string.activityNotesHint);
                 }
             }
         });
