@@ -20,8 +20,8 @@ public class MainActivity extends Activity {
         buttonToFoodTracker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToFoodTracker = new Intent(MainActivity.this, FoodTrackerActivity.class);
-                startActivity(goToFoodTracker);
+                Intent goToFoodTrackerSplashScreen = new Intent(MainActivity.this, FoodTrackerActivity.class);
+                startActivity(goToFoodTrackerSplashScreen);
             }
         });
     

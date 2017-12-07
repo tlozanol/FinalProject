@@ -23,6 +23,10 @@
         <activity android:name=".FoodTrAppleInfoActivity" />
         <activity android:name=".FoodTrBananaInfoActivity" />
         <activity android:name=".ThermostatAddOrEditActivity" />
+        <activity android:name=".FTSplashScreen"/>
+
+
+
     </application>
 
 </manifest>
