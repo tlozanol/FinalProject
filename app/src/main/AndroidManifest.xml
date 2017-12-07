@@ -23,6 +23,8 @@
         <activity android:name=".FoodTrAppleInfoActivity" />
         <activity android:name=".FoodTrBananaInfoActivity" />
         <activity android:name=".ThermostatAddOrEditActivity" />
+        <activity android:name=".Automobile_History" />
+        <activity android:name=".AutomobilePurchase"></activity>
     </application>
 
 </manifest>
