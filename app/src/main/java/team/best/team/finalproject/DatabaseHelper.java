@@ -28,15 +28,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 3;
+    private static final int VERSION_NUM = 4;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
-    
+
+    //THERMOSTAT TABLE
     private static final String THERMOSTAT_TABLE_NAME = "THERMOSTAT_TABLE";
     private static final String KEY_THERMOSTAT_DAY = "DAY";
     private static final String KEY_THERMOSTAT_TIME = "HOUR";
     private static final String KEY_THERMOSTAT_TEMPERATURE = "TEMPERATURE";
     private static final String[] THERMOSTAT_COLUMNS = {KEY_THERMOSTAT_DAY, KEY_THERMOSTAT_TIME, KEY_THERMOSTAT_TEMPERATURE}; // columns does not include KEY_ID
+
+    //ACTIVITY TRACKER TABLE
+    private static final String ACTIVITY_TABLE_NAME = "ACTIVITY_TABLE";
+    private static final String KEY_ACTIVITY_DAY = "DAY";
+    private static final String KEY_ACTIVITY_TIME = "TIME";
+    private static final String KEY_ACTIVITY_ACTIVITY = "ACTIVITY";
+    private static final String KEY_ACTIVITY_NOTES = "NOTES";
+    private static final String[] ACTIVITY_COLUMNS = {KEY_ACTIVITY_DAY, KEY_ACTIVITY_TIME, KEY_ACTIVITY_ACTIVITY, KEY_ACTIVITY_NOTES}; // columns does not include KEY_ID
+
     
     
     public DatabaseHelper(Context context) {
@@ -57,6 +67,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_THERMOSTAT_TIME + " TEXT, "
                 + KEY_THERMOSTAT_TEMPERATURE + " TEXT"
                 + " );");
+
+        // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
+        db.execSQL("CREATE TABLE " + ACTIVITY_TABLE_NAME
+                + " ("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_ACTIVITY_DAY + " TEXT, "
+                + KEY_ACTIVITY_TIME + " TEXT, "
+                + KEY_ACTIVITY_ACTIVITY + " TEXT,"
+                + KEY_ACTIVITY_NOTES + " TEXT"
+                + " );");
     }
     
     @Override
@@ -65,6 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         
         // DROP TABLE IF EXISTS THERMOSTAT_TABLE
         db.execSQL("DROP TABLE IF EXISTS " + THERMOSTAT_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ACTIVITY_TABLE_NAME);
         
         // recreate db using onCreate(db)
         onCreate(db);
@@ -76,6 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         
         // DROP TABLE IF EXISTS THERMOSTAT_TABLE
         db.execSQL("DROP TABLE IF EXISTS " + THERMOSTAT_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ACTIVITY_TABLE_NAME);
         
         // recreate db using onCreate(db)
         onCreate(db);
@@ -85,9 +107,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // -------------
     //  GET ITEM ID
     // -------------
-    
+
     public int getThermostatItemID(int position) {
+        Log.i(ACTIVITY_NAME, "-- In getThermostatItemID()");
+
         return getItemID(position, THERMOSTAT_TABLE_NAME);
+    }
+
+    public int getActivityItemID(int position) {
+        Log.i(ACTIVITY_NAME, "-- In getActivityItemID()");
+
+        return getItemID(position, ACTIVITY_TABLE_NAME);
     }
     
     /**
@@ -123,6 +153,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         
         addDBEntry(dataToDB, THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
     }
+
+    public void addActivityDBEntry(ArrayList<String> dataToDB) {
+        Log.i(ACTIVITY_NAME, "-- In addActivityDBEntry()");
+
+        addDBEntry(dataToDB, ACTIVITY_TABLE_NAME, ACTIVITY_COLUMNS);
+    }
     
     /**
      * Adds the ArrayList of Strings into the given database.
@@ -153,6 +189,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.i(ACTIVITY_NAME, "-- In getThermostatDBData()");
         
         return getDBData(THERMOSTAT_TABLE_NAME);
+    }
+
+    public ArrayList<ArrayList<String>> getActivityDBData() {
+        Log.i(ACTIVITY_NAME, "-- In getActivityDBData()");
+
+        return getDBData(ACTIVITY_TABLE_NAME);
     }
     
     /**
@@ -199,6 +241,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         
         deleteDBEntry(ID, THERMOSTAT_TABLE_NAME);
     }
+
+    public void deleteActivityDBEntry(int ID) {
+        Log.i(ACTIVITY_NAME, "-- In deleteActivityDBEntry()");
+
+        deleteDBEntry(ID, ACTIVITY_TABLE_NAME);
+    }
     
     /**
      * Deletes the row associated to the given ID.
@@ -223,6 +271,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.i(ACTIVITY_NAME, "-- In updateThermostatDBEntry()");
         
         updateDBEntry(ID, newData, THERMOSTAT_TABLE_NAME, THERMOSTAT_COLUMNS);
+    }
+
+    public void updateActivityDBEntry(int ID, ArrayList<String> newData) {
+        Log.i(ACTIVITY_NAME, "-- In updateActivityDBEntry()");
+
+        updateDBEntry(ID, newData, ACTIVITY_TABLE_NAME, ACTIVITY_COLUMNS);
     }
     
     /**

@@ -48,6 +48,26 @@
 
     <!-- Activity Tracker -->
     <string name="activityTrackerTitle">Activity Tracker</string>
+    <string name="activityHistoryTitle">Your activity history</string>
+    <string name="activityAddTitle">Add a new activity</string>
+    <string name="activityDetailTitle">Activity details</string>
+    <string name="activityDateHint">Date</string>
+    <string name="activityTimeHint">Time spent in minutes</string>
+    <string name="activityActivityLabel">Activity</string>
+    <string name="activityTime">Time</string>
+    <string name="activityNotesTitle">Notes</string>
+    <string name="activityNotesHint">ex: This felt easy</string>
+    <string name="buttonAddActivity">Add new activity</string>
+    <string name="buttonDeleteActivity">Delete</string>
+    <string name="buttonEditActivity">Edit</string>
+    <string name="buttonActivityHistory">View activity history</string>
+    <string-array name="activitiesArray">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Swimming</item>
+        <item>Skating</item>
+    </string-array>
 
 
     <!-- Thermostat -->
@@ -58,6 +78,7 @@
 
 
     <!-- Automobile -->
+    <string name="automobileTitle">Automobile</string>
     <string name="automobileEntriesTitle">Automobile Entries</string>
     <string name="carModel">Car Model</string>
     <string name="gas">Gas Amount: </string>
@@ -71,5 +92,10 @@
     <string name="inputLiters">How many liters?</string>
     <string name="inputAvgKm">Kilometers per Liter</string>
 
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dateToast">You must enter a date</string>
+    <string name="addedSnack">Activity added</string>
 
 </resources>

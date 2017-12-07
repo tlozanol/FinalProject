@@ -34,18 +34,18 @@ public class FoodTrackerActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-    
-    
+
+
                 if (position == 0) {
                     Intent intent = new Intent(view.getContext(), FoodTrAppleInfoActivity.class);
                     startActivity(intent);
                 }
-    
+
                 if (position == 1) {
                     Intent intent = new Intent(view.getContext(), FoodTrBananaInfoActivity.class);
                     startActivity(intent);
                 }
-    
+
             }
         });
     
