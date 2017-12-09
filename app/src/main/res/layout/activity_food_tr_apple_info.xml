@@ -52,18 +52,18 @@
         android:layout_below="@+id/FTtxtViewCalories"
         android:text="@string/FTLabelAppletotal_fat"
         />
-        <TextView
-            android:id="@+id/FTtxtViewTotalFatInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:layout_marginStart="20dp"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_toEndOf="@id/FTtxtViewTotalFat"
-            android:layout_below="@+id/FTtxtViewCaloriesInfo"
-            android:text="@string/FTAppleTotalFatValue"
-            />
+    <TextView
+        android:id="@+id/FTtxtViewTotalFatInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginStart="20dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/FTtxtViewTotalFat"
+        android:layout_below="@+id/FTtxtViewCaloriesInfo"
+        android:text="@string/FTAppleTotalFatValue"
+        />
 
 
     <TextView

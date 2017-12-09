@@ -20,13 +20,10 @@
         <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".ThermostatActivity" />
         <activity android:name=".AutomobileActivity" />
-        <activity android:name=".FoodTrAppleInfoActivity" />
-        <activity android:name=".FoodTrBananaInfoActivity" />
         <activity android:name=".ThermostatAddOrEditActivity" />
-        <activity android:name=".FTSplashScreen"/>
-
-
-
+        <activity android:name=".FTSplashScreen" />
+        <activity android:name=".FoodTrAppleInfoActivity" />
+        <activity android:name=".FoodTrBananaInfoActivity"/>
     </application>
 
 </manifest>

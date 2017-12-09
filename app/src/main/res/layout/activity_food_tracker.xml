@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@id/editTextFoodTracker"
-        android:text="@string/FTEditTxtenter_name_of_new_food"
+
 
         />
 

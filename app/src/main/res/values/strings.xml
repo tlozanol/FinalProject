@@ -43,7 +43,7 @@
 
     <!-- Automobile -->
     <string name="automobileTitle">Automobile</string>
-    <string name="FTapple">APPLE</string>
+
     <string name="FTLabelAppletotal_fat">Total fat</string>
     <string name="FTAppleLabelcarbohydrate">Carbohydrate</string>
     <string name="FTBananaLabelcalories">Calories</string>
@@ -59,6 +59,9 @@
     <string name="FTAppleCarbValue">25g</string>
     <string name="FTBtnadd_new_food_item">Add New Food Item</string>
     <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
+    <string name="title_fooditem">FOOD ITEM</string>
+    <string name="FT_btnsave">SAVE</string>
+    <string name="FT_btnedit">EDIT</string>
 
 
 </resources>
