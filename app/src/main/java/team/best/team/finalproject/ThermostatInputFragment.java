@@ -254,6 +254,8 @@ public class ThermostatInputFragment extends Fragment {
         else
             return "PM";
     }
+    
+    
 }
 
 
