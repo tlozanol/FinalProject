@@ -34,6 +34,23 @@
 
     <!-- Food Tracker -->
     <string name="foodTrackerTitle">Food Tracker</string>
+    <string name="FTBtnadd_new_food_item">Add New Food Item</string>
+    <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
+    <string name="food_tracker_welcome">WELCOME TO FOOD TRACKER</string>
+    <string name="food_tracker_click_here_to_start">CLICK HERE TO START FOODTRACKER</string>
+    <string name="food_tracker_splashscreen">splashscreen</string>
+    <string name="food_tracker_fragLabel">FOOD TRACKER</string>
+    <string name="food_tracker_food_itemLbl">FOOD ITEM:</string>
+    <string name="food_tracker_caloriesLbl">CALORIES:</string>
+    <string name="food_tracker_total_fatLbl">TOTAL FAT</string>
+    <string name="food_tracker_total_carbsLbl">TOTAL CARBS</string>
+    <string name="food_tracker_save">SAVE</string>
+    <string name="food_tracker_update">UPDATE</string>
+    <string name="food_tracker_delete">DELETE</string>
+    <string name="food_tracker_menu_one">One</string>
+    <string name="food_tracker_menu_two">Two</string>
+<!--    <string name="FTbtn_save">SAVE</string>
+    <string name="FTbtn_Edit">EDIT</string>
     <string name="button">button_Enter</string>
     <string name="FTapple">APPLE</string>
     <string name="FTLabelAppletotal_fat">Total fat</string>
@@ -48,9 +65,7 @@
     <string name="FTAppleCalLabel">Calories</string>
     <string name="FTAppleCalValue">95</string>
     <string name="FTAppleTotalFatValue">0g</string>
-    <string name="FTAppleCarbValue">25g</string>
-    <string name="FTBtnadd_new_food_item">Add New Food Item</string>
-    <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
+    <string name="FTAppleCarbValue">25g</string> -->
 
 
     <!-- Activity Tracker -->
@@ -126,5 +141,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dateToast">You must enter a date</string>
     <string name="addedSnack">Activity added</string>
+
+
 
 </resources>

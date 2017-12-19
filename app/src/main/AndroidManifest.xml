@@ -21,12 +21,10 @@
         <activity android:name=".AutomobileActivity" />
         <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".ThermostatAddOrEditActivity" />
-        <activity android:name=".FTSplashScreen" />
         <activity android:name=".ActivityAddActivity" />
         <activity android:name=".ActivityViewHistory" />
         <activity android:name=".Automobile_History" />
         <activity android:name=".AutomobilePurchase" />
-        <activity android:name=".FoodTrackerItemFragment" />
         <activity android:name=".FoodTrackerItemDetails" />
         <activity android:name=".FoodTrackerLVwithMenu" />
         <activity android:name=".ThermostatAbout" />

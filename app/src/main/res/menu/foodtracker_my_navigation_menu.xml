@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_settings"
-        android:title="settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_one"
-        android:icon="@android:drawable/btn_star_big_on"
+        android:icon="@drawable/goodinfoicon"
         android:orderInCategory="50"
-        android:title="One"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_two"
-        android:icon="@android:drawable/ic_input_add"
-        android:orderInCategory="102"
-        android:title="Two"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_three"
-        android:icon="@android:drawable/ic_delete"
-        android:orderInCategory="103"
-        android:title="Three"
+        android:title="@string/food_tracker_menu_one"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_four"
-        android:icon="@android:drawable/presence_online"
-        android:orderInCategory="104"
-        android:title="Four"
+        android:id="@+id/action_two"
+        android:icon="@drawable/helpblackwhite"
+        android:orderInCategory="102"
+        android:title="@string/food_tracker_menu_two"
         app:showAsAction="always" />
+
 </menu>
