@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalProject</string>
+
+    <!-- One Worders -->
+    <string name="add">ajouter</string>
+    <string name="cancel">annuler</string>
+    <string name="day">jour</string>
+    <string name="save">enregistrer</string>
+    <string name="temperature">température</string>
+    <string name="time">temps</string>
+    <string name="sunday">dimanche</string>
+    <string name="monday">lundi</string>
+    <string name="tuesday">mardi</string>
+    <string name="wednesday">mercredi</string>
+    <string name="thursday">jeudi</string>
+    <string name="friday">vendredi</string>
+    <string name="saturday">samedi</string>
+    <string name="loading">chargement</string>
+    <string name="select">sélectionner:</string>
+    <string name="about">propos</string>
+    <string name="back">retourner</string>
+    <string name="undo">annuler</string>
+    <string name="yes">oui</string>
+    <string name="no">non</string>
+
+
+    <!-- Main Menu -->
+    <string name="mainMenuTitle">menu principal</string>
+    <string name="buttonToFoodTracker">traqueur de nourriture</string>
+    <string name="buttonToActivityTracker">tracker d\'activité</string>
+    <string name="buttonToThermostat">thermostat</string>
+    <string name="buttonToAutomobile">voiture</string>
+
+
+    <!-- Food Tracker -->
+
+
+    <!-- Activity Tracker -->
+
+
+    <!-- Thermostat -->
+    <string name="thermostatAddTitle">ajouter une entrée</string>
+    <string name="thermostatEditTitle">modifier l\'entrée</string>
+    <string name="thermostatDeleteEntry">supprimer l\'entrée</string>
+    <string name="thermostatEntriesTitle">entrées du thermostat</string>
+    <string name="noEntriesFound">Aucune entrée trouvée. Ajouter un maintenant?</string>
+    <string name="entryAdded">Entrée ajoutée!</string>
+    <string name="entrySaved">Entrée enregistrée!</string>
+    <string name="entryDeleted">Entrée supprimée!</string>
+    <string name="undidDelete">Annuler supprimer!</string>
+    <string name="thermostatAbout">
+        App Thermostat\n
+        Produit par: Joel Janzen\n
+        Numéro de version: 1.0\n\n
+        Cette application suit un calendrier pour un thermostat.\n\n
+        Instructions\n
+        Cliquez sur précédent dans cette fenêtre pour revenir à l\'application.\n\n
+        Cliquez sur ajouter dans la fenêtre principale pour ajouter une nouvelle entrée de thermostat.\n
+        Cela vous amènera à la fenêtre d\'édition.\n
+        Dans la fenêtre d\'édition, vous pouvez définir le jour, l\'heure et la température.\n
+        Cliquez sur enregistrer dans la fenêtre d\'édition pour enregistrer votre nouvelle entrée.\n\n
+        Cliquez sur une entrée existante dans la fenêtre principale pour la modifier.\n
+        Cela vous amènera à la fenêtre d\'édition.\n
+        Cliquez sur enregistrer dans la fenêtre d\'édition pour enregistrer vos modifications.\n
+        Cliquez sur annuler dans la fenêtre d\'édition pour annuler vos modifications.\n
+        Cliquez sur supprimer dans la fenêtre d\'édition pour supprimer cette entrée.\n
+        </string>
+
+
+    <!-- Automobile -->
+
+</resources>

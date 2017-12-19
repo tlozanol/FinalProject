@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 4;
+    private static final int VERSION_NUM = 5;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
 
@@ -57,8 +57,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_DATE = "DATE";
     private static final String[] AUTOMOBILE_COLUMNS = {KEY_AUTOMOBILE_TYPE, KEY_GAS_TYPE, KEY_GAS_PRICE, KEY_GAS_LITERS, KEY_AVG_KM, KEY_DATE}; // columns does not include KEY_ID
 
-
+    //ACTIVITY FOOD TRACKER
+    private static final String FOODTRACKER_TABLE_NAME = "FOODTRACKER_TABLE";
+    private static final String KEY_FOODTRACKER_CALORIES = "CALORIES";
+    private static final String KEY_FOODTRACKER_TOTAL_CARBS = "TOTAL_CARBS";
+    private static final String KEY_FOODTRACKER_TOTAL_FAT = "TOTAL_FAT";
+    private static final String KEY_FOODTRACKER_DAY = "DAY";
+    private static final String[] FOODTRACKER_COLUMNS = {KEY_FOODTRACKER_CALORIES, KEY_FOODTRACKER_TOTAL_CARBS, KEY_FOODTRACKER_TOTAL_FAT,KEY_FOODTRACKER_DAY }; // columns does not include KEY_ID
     
+   
     
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION_NUM);
@@ -78,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_THERMOSTAT_TIME + " TEXT, "
                 + KEY_THERMOSTAT_TEMPERATURE + " TEXT"
                 + " );");
-
+      
         // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
         db.execSQL("CREATE TABLE " + ACTIVITY_TABLE_NAME
                 + " ("
@@ -100,6 +107,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_AVG_KM + " TEXT,"
                 + KEY_DATE + " TEXT"
                 + " );");
+        
+        // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
+        db.execSQL("CREATE TABLE " + FOODTRACKER_TABLE_NAME
+                + " ("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_FOODTRACKER_CALORIES + " TEXT, "
+                + KEY_FOODTRACKER_TOTAL_CARBS + " TEXT,"
+                + KEY_FOODTRACKER_TOTAL_FAT + " TEXT,"
+                + KEY_FOODTRACKER_DAY + " TEXT"
+                + " );");
     }
     
     @Override
@@ -110,6 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + THERMOSTAT_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ACTIVITY_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + AUTOMOBILE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + FOODTRACKER_TABLE_NAME);
         
         // recreate db using onCreate(db)
         onCreate(db);
@@ -123,6 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + THERMOSTAT_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ACTIVITY_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + AUTOMOBILE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + FOODTRACKER_TABLE_NAME);
         
         // recreate db using onCreate(db)
         onCreate(db);
@@ -151,6 +170,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return getItemID(position, AUTOMOBILE_TABLE_NAME);
     }
     
+    public int getFoodTrackerItemID(int position) {
+        Log.i(ACTIVITY_NAME, "-- In getFoodTrackerItemID()");
+        
+        return getItemID(position, FOODTRACKER_TABLE_NAME);
+    }
     /**
      * Get id from database given position.
      * Removing entries from db will make id != position, so getItemID is needed
@@ -197,6 +221,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         addDBEntry(dataToDB, AUTOMOBILE_TABLE_NAME, AUTOMOBILE_COLUMNS);
     }
     
+    public void addFoodTrackerDBEntry(ArrayList<String> dataToDB) {
+        Log.i(ACTIVITY_NAME, "-- In addFoodTrackerDBEntry()");
+        
+        addDBEntry(dataToDB, FOODTRACKER_TABLE_NAME, FOODTRACKER_COLUMNS);
+    }
     /**
      * Adds the ArrayList of Strings into the given database.
      * This is for internal use only. public add___DBEntry will call this private method.
@@ -239,6 +268,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return getDBData(AUTOMOBILE_TABLE_NAME);
     }
+
+    public ArrayList<ArrayList<String>> getFoodTrackerDBData() {
+        Log.i(ACTIVITY_NAME, "-- In getActivityDBData()");
+        
+        return getDBData(FOODTRACKER_TABLE_NAME);
+    }
+
     
     /**
      * Goes through the specified table in the database and returns a 2D ArrayList of the data.
@@ -297,6 +333,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         deleteDBEntry(ID, AUTOMOBILE_TABLE_NAME);
     }
     
+    public void deleteFoodTrackerDBEntry(int ID) {
+        Log.i(ACTIVITY_NAME, "-- In deleteActivityDBEntry()");
+        
+        deleteDBEntry(ID, FOODTRACKER_TABLE_NAME);
+    }
+    
     /**
      * Deletes the row associated to the given ID.
      * This is for internal use only. public delete___DBEntry will call this private method.
@@ -333,6 +375,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         updateDBEntry(ID, newData, AUTOMOBILE_TABLE_NAME, AUTOMOBILE_COLUMNS);
     }
+
+    public void updateFoodTrackerDBEntry(int ID, ArrayList<String> newData) {
+        Log.i(ACTIVITY_NAME, "-- In updateActivityDBEntry()");
+        
+        updateDBEntry(ID, newData, FOODTRACKER_TABLE_NAME, FOODTRACKER_COLUMNS);
+        
+    }
+
     
     /**
      * Updates the row with the given ID with the ArrayList of new data
