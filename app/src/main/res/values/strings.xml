@@ -5,6 +5,7 @@
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
     <string name="day">Day</string>
+    <string name="date">Date</string>
     <string name="save">Save</string>
     <string name="temperature">Temperature</string>
     <string name="time">Time</string>
@@ -81,16 +82,25 @@
     <string name="automobileTitle">Automobile</string>
     <string name="automobileEntriesTitle">Automobile Entries</string>
     <string name="carModel">Car Model</string>
-    <string name="gas">Gas Amount: </string>
+    <string name="gas">Type of gas: </string>
     <string name="price">Gas Price: </string>
     <string name="liters">Liters Purchased: </string>
     <string name="avgKms">Average Kilometers: </string>
     <string name="savePurchase">Save Purchase</string>
     <string name="seeHistory">See History</string>
-    <string name="inputGas">How much gas?</string>
+    <string name="inputGas">Which gas?</string>
     <string name="inputPrice">How much per liter?</string>
     <string name="inputLiters">How many liters?</string>
     <string name="inputAvgKm">Kilometers per Liter</string>
+    <string name="automobileSnackbar">Gas Purchase Added</string>
+    <string-array name="listOfCars">
+        <item>Sedan</item>
+        <item>Minivan</item>
+        <item>Coupe</item>
+        <item>Sports Car</item>
+        <item>Hatchback</item>
+        <item>Pickup Truck</item>
+    </string-array>
 
 
     <!-- TODO: Remove or change this placeholder text -->

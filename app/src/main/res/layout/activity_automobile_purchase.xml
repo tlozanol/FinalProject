@@ -71,6 +71,15 @@
         android:layout_marginEnd="18dp"
         android:text="@string/seeHistory" />
 
+    <EditText
+        android:id="@+id/carDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="@string/date"
+        android:layout_above="@+id/carText"
+        android:layout_alignStart="@+id/carText"/>
+
     <Spinner
         android:id="@+id/carText"
         android:drawSelectorOnTop="true"
