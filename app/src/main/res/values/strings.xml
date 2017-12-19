@@ -17,6 +17,11 @@
     <string name="saturday">Saturday</string>
     <string name="loading">Loading</string>
     <string name="select">Select:</string>
+    <string name="about">About</string>
+    <string name="back">Back</string>
+    <string name="undo">Undo</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
     <!-- Main Menu -->
@@ -77,6 +82,28 @@
     <string name="thermostatEditTitle">Edit Entry</string>
     <string name="thermostatDeleteEntry">Delete Entry</string>
     <string name="thermostatEntriesTitle">Thermostat Entries</string>
+    <string name="noEntriesFound">No entries found. Add one now?</string>
+    <string name="entryAdded">Entry added!</string>
+    <string name="entrySaved">Entry saved!</string>
+    <string name="entryDeleted">Entry deleted!</string>
+    <string name="undidDelete">Undid delete!</string>
+    <string name="thermostatAbout">
+        Thermostat App\n
+        Produced by: Joel Janzen\n
+        Version Number: 1.0\n\n
+        This app tracks a schedule for a thermostat.\n\n
+        Instructions\n
+        Click Back in this window to return to the app.\n\n
+        Click Add in the main window to add a new thermostat entry.\n
+        This will bring you to the edit window.\n
+        In the edit window, you can set the day, time, and temperature.\n
+        Click Save in the edit window to save your new entry.\n\n
+        Click an existing entry in the main window to edit it.\n
+        This will bring you to the edit window.\n
+        Click Save in the edit window to save your edits.\n
+        Click Cancel in the edit window to cancel your edits.\n
+        Click Delete in the edit window to delete this entry.\n
+        </string>
 
 
     <!-- Automobile -->

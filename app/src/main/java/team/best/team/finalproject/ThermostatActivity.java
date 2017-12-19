@@ -42,6 +42,7 @@ public class ThermostatActivity extends Activity {
     RelativeLayout thermostatRelativeLayout;
     
     Button buttonAddTemperature;
+    Button buttonAboutTemperature;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +57,11 @@ public class ThermostatActivity extends Activity {
         thermostatArray = databaseHelper.getThermostatDBData();
     
         if (thermostatArray.size() == 0)
-            showCustomDialog("No entries found. Add one now?", "Yes", "No");
+            showCustomDialog(getResources().getString(R.string.noEntriesFound), getResources().getString(R.string.yes), getResources().getString(R.string.no));
         
         listThermostat = findViewById(R.id.listThermostat);
         thermostatListAdapter = new ThermostatListAdapter(this);
         listThermostat.setAdapter(thermostatListAdapter);
-    
         listThermostat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long position) {
@@ -74,7 +74,6 @@ public class ThermostatActivity extends Activity {
         });
     
         buttonAddTemperature = findViewById(R.id.buttonAddTemperature);
-        
         buttonAddTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +81,15 @@ public class ThermostatActivity extends Activity {
                 Intent goToThermostatAdd = new Intent(ThermostatActivity.this, ThermostatAddOrEditActivity.class);
                 goToThermostatAdd.putExtras(thermostatEntryBundle);
                 startActivityForResult(goToThermostatAdd, THERMOSTAT_REQUEST_ADD);
+            }
+        });
+    
+        buttonAboutTemperature = findViewById(R.id.buttonAboutTemperature);
+        buttonAboutTemperature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToThermostatAbout = new Intent(ThermostatActivity.this, ThermostatAbout.class);
+                startActivity(goToThermostatAbout);
             }
         });
     }
@@ -130,7 +138,7 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Add
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Add: Save");
-                showToast("Entry added!");
+                showToast(getResources().getString(R.string.entryAdded));
                 
                 String newDay = data.getStringExtra("Day");
                 String newTime = data.getStringExtra("Time");
@@ -150,7 +158,7 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Edit
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Save");
-                showToast("Entry saved!");
+                showToast(getResources().getString(R.string.entrySaved));
                 
                 int IDToUpdate = data.getIntExtra("ID", 1);
                 String newDay = data.getStringExtra("Day");
@@ -172,7 +180,7 @@ public class ThermostatActivity extends Activity {
     
                 lastDeletedEntry = thermostatArray.get(lastPositionClicked);
                 lastDeletedEntry.remove(0); // removes id from ArrayList, since adding needs no id
-                showSnackBar("Entry deleted!", "UNDO");
+                showSnackBar(getResources().getString(R.string.entryDeleted), getResources().getString(R.string.undo));
                 
                 databaseHelper.deleteThermostatDBEntry(IDToDelete);
             }
@@ -219,7 +227,7 @@ public class ThermostatActivity extends Activity {
             @Override
             public void onClick(View view) {
                 undoDeleteThermostatEntry();
-                showSnackBar("Undid delete!");
+                showSnackBar(getResources().getString(R.string.undidDelete));
             }
         });
     }
