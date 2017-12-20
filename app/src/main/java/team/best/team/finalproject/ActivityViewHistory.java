@@ -132,7 +132,7 @@ public class ActivityViewHistory extends Activity implements ActivityViewDetailF
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
-                        dbHelper.deleteActivityDBEntry(Integer.parseInt(icd d));
+                        dbHelper.deleteActivityDBEntry(Integer.parseInt(id));
                         onBackPressed();
                     }
                 });
