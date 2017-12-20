@@ -1,38 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    android:backgroundTint="@android:color/holo_orange_light"
     tools:context="team.best.team.finalproject.FoodTrackerActivity">
 
-    <ListView
-
-        android:id="@+id/listFood"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/listFood" />
-
-    <EditText
-        android:id="@+id/editTextFoodTracker"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_above="@+id/splashsreenImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="76dp"
+        android:autoSizeMaxTextSize="@android:dimen/app_icon_size"
+        android:text="@string/food_tracker_welcome"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/splashsreenImage"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/food_tracker_splashscreen"
+        android:src="@drawable/veggy2"
+        tools:layout_height="@android:dimen/thumbnail_height"
+        tools:layout_width="350dp" />
+
+    <ProgressBar
+        android:id="@+id/FT_splashScreen_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@id/editTextFoodTracker"
-        android:text="@string/FTEditTxtenter_name_of_new_food"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+
 
         />
 
     <Button
-        android:id="@+id/btnFoodTrackerEnter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/FTBtnadd_new_food_item" />
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="59dp"
+        android:layout_below="@+id/splashsreenImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:text="@string/food_tracker_click_here_to_start" />
+
 
 </RelativeLayout>
