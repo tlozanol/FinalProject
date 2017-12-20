@@ -37,6 +37,60 @@
 
 
     <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Suivi d\'activité</string>
+    <string name="activityHistoryTitle">Votre historique d\'activité</string>
+    <string name="activityAddTitle">Ajouter une nouvelle activité</string>
+    <string name="activityDetailTitle">Détails de l\'activité</string>
+    <string name="activityDateHint">La date</string>
+    <string name="activityTimeHint">Temps passé en minutes</string>
+    <string name="activityActivityLabel">Activité</string>
+    <string name="activityTime">Temps</string>
+    <string name="activityNotesTitle">Remarques</string>
+    <string name="activityNotesHint">ex: C\'était facile</string>
+    <string name="buttonAddActivity">Ajouter une nouvelle activité</string>
+    <string name="buttonDeleteActivity">Effacer</string>
+    <string name="buttonEditActivity">Modifier</string>
+    <string name="buttonActivityHistory">Afficher l\'historique des activités</string>
+    <string-array name="activitiesArray">
+        <item>La course</item>
+        <item>En marchant</item>
+        <item>Cyclisme</item>
+        <item>La natation</item>
+        <item>Patinage</item>
+    </string-array>
+    <string name="dateToast">Vous devez entrer une date</string>
+    <string name="addedSnack">Activité ajoutée</string>
+    <string name="currentSummaryLabel">Temps passé ce mois-ci:</string>
+    <string name="prevSummaryLabel">Temps passé le mois dernier:</string>
+    <string name="buttonSave">Sauvegarder</string>
+    <string name="activityEditTitle">Modifier l\'activité</string>
+    <string name="editedSnack">Changements sauvegardés</string>
+    <string name="currentTimeGood">. Bon!</string>
+    <string name="currentTimeBad">. Mieux vaut se mettre au travail!</string>
+    <string name="prevTimeGood">. Continuez!</string>
+    <string name="prevTimeBad">. Tsk tsk.</string>
+    <string name="minutes">\u0020minutes</string>
+    <string name="inputMissing">Entrée manquante:\u0020</string>
+    <string name="missingTime">temps</string>
+    <string name="missingNotes">notes</string>
+    <string name="saveAnyway">\nEnregistrer quand même?</string>
+    <string name="running">La course</string>
+    <string name="walking">En marchant</string>
+    <string name="biking">Cyclisme</string>
+    <string name="swimming">La natation</string>
+    <string name="skating">Patinage</string>
+    <string name="activityTrackerAbout">
+        Suivi d\'activité\n\n
+        Auteur: Catharina Kratzmann\n
+        Version: 1.0\n\n
+        Suivez votre activité physique.\n\n
+        <u>Instructions:</u>\n\n
+        Cliquez sur <b>Afficher l\'historique des activités</b> pour voir vos activités sauvegardées triées par jour.\n\n
+        Cliquez sur <b>Ajouter une nouvelle activité</b> créer une nouvelle activité.\n\n
+        À partir de l\'historique des activités, sélectionnez une activité enregistrée pour afficher ses détails. Cliquez sur <b>Modifier</b> pour modifier les détails enregistrés ou <b>Effacer</b> pour supprimer définitivement l\'activité de l\'histoire.\n\n
+        Dans Modifier ou Ajouter une nouvelle activité, utilisez les options pour enregistrer l\'une des 5 activités différentes. Une activité doit avoir une date enregistrée, les autres détails sont facultatifs.\n\n
+        Cliquez sur <b>Ajouter</b> ou <b>Sauvegarder</b> enregistre l\'activité dans l\'historique. Cliquez sur <b>Annuler</b> rejette les modifications et retourne à l\'écran précédent.
+    </string>
 
 
     <!-- Thermostat -->

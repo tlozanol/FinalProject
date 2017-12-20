@@ -1,7 +1,9 @@
 package team.best.team.finalproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -49,6 +51,21 @@ public class ActivityTrackerActivity extends Activity {
     {
         Intent intent = new Intent(this, ActivityAddActivity.class);
         startActivity(intent);
+    }
+
+    public void onAboutClick(View view)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.activityTrackerAbout).setTitle(R.string.about);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.create().show();
     }
 
     @Override
