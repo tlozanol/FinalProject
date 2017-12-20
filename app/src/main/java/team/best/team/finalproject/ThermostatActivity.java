@@ -1,10 +1,13 @@
 package team.best.team.finalproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,11 +32,17 @@ public class ThermostatActivity extends Activity {
     private final int THERMOSTAT_RESULT_DELETE = 200;
     
     ArrayList<ArrayList<String>> thermostatArray = new ArrayList<>();
+    ArrayList<String> lastDeletedEntry = new ArrayList<>();
+    private int lastPositionClicked;
     
     DatabaseHelper databaseHelper;
     ListView listThermostat;
     ThermostatListAdapter thermostatListAdapter;
     SQLiteDatabase writableDatabase;
+    RelativeLayout thermostatRelativeLayout;
+    
+    Button buttonAddTemperature;
+    Button buttonAboutTemperature;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +50,30 @@ public class ThermostatActivity extends Activity {
         setContentView(R.layout.activity_thermostat);
         Log.i(ACTIVITY_NAME, "-- In onCreate()");
     
+        thermostatRelativeLayout = findViewById(R.id.thermostatRelativeLayout);
+        
         databaseHelper = new DatabaseHelper(this);
         writableDatabase = databaseHelper.getWritableDatabase();
         thermostatArray = databaseHelper.getThermostatDBData();
+    
+        if (thermostatArray.size() == 0)
+            showCustomDialog(getResources().getString(R.string.noEntriesFound), getResources().getString(R.string.yes), getResources().getString(R.string.no));
         
         listThermostat = findViewById(R.id.listThermostat);
         thermostatListAdapter = new ThermostatListAdapter(this);
         listThermostat.setAdapter(thermostatListAdapter);
-    
         listThermostat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long position) {
+                lastPositionClicked = (int) position;
                 Bundle thermostatEntryBundle = createThermostatEditBundle((int) position);
                 Intent goToThermostatEdit = new Intent(ThermostatActivity.this, ThermostatAddOrEditActivity.class);
                 goToThermostatEdit.putExtras(thermostatEntryBundle);
                 startActivityForResult(goToThermostatEdit, THERMOSTAT_REQUEST_EDIT);
             }
         });
-        
-        Button buttonAddTemperature = findViewById(R.id.buttonAddTemperature);
     
+        buttonAddTemperature = findViewById(R.id.buttonAddTemperature);
         buttonAddTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +81,15 @@ public class ThermostatActivity extends Activity {
                 Intent goToThermostatAdd = new Intent(ThermostatActivity.this, ThermostatAddOrEditActivity.class);
                 goToThermostatAdd.putExtras(thermostatEntryBundle);
                 startActivityForResult(goToThermostatAdd, THERMOSTAT_REQUEST_ADD);
+            }
+        });
+    
+        buttonAboutTemperature = findViewById(R.id.buttonAboutTemperature);
+        buttonAboutTemperature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToThermostatAbout = new Intent(ThermostatActivity.this, ThermostatAbout.class);
+                startActivity(goToThermostatAbout);
             }
         });
     }
@@ -114,7 +138,8 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Add
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Add: Save");
-    
+                showToast(getResources().getString(R.string.entryAdded));
+                
                 String newDay = data.getStringExtra("Day");
                 String newTime = data.getStringExtra("Time");
                 String newTemperature = data.getStringExtra("Temperature");
@@ -133,7 +158,8 @@ public class ThermostatActivity extends Activity {
             if (resultCode == THERMOSTAT_RESULT_SAVE) {
                 // Save in Edit
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Save");
-    
+                showToast(getResources().getString(R.string.entrySaved));
+                
                 int IDToUpdate = data.getIntExtra("ID", 1);
                 String newDay = data.getStringExtra("Day");
                 String newTime = data.getStringExtra("Time");
@@ -150,11 +176,23 @@ public class ThermostatActivity extends Activity {
                 // Delete in Edit
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Delete");
     
-                int IDToDelete = data.getIntExtra("ID", 4);
+                int IDToDelete = data.getIntExtra("ID", 0);
+    
+                lastDeletedEntry = thermostatArray.get(lastPositionClicked);
+                lastDeletedEntry.remove(0); // removes id from ArrayList, since adding needs no id
+                showSnackBar(getResources().getString(R.string.entryDeleted), getResources().getString(R.string.undo));
+                
                 databaseHelper.deleteThermostatDBEntry(IDToDelete);
             }
             // Cancel acts as a Back button, so do nothing
         }
+    }
+    
+    private void undoDeleteThermostatEntry() {
+        Log.i(ACTIVITY_NAME, "-- In undoDeleteThermostatEntry()");
+        thermostatArray.add(lastPositionClicked, lastDeletedEntry);
+        databaseHelper.addThermostatDBEntry(lastDeletedEntry);
+        refreshThermostatEntries();
     }
     
     private void refreshThermostatEntries() {
@@ -166,6 +204,50 @@ public class ThermostatActivity extends Activity {
         
         thermostatListAdapter = new ThermostatListAdapter(this);
         listThermostat.setAdapter(thermostatListAdapter);
+    }
+    
+    private void showToast(String messageText) {
+        Log.i(ACTIVITY_NAME, "-- In showToast()");
+        Toast toast = Toast.makeText(getApplicationContext(), messageText, Toast.LENGTH_LONG);
+        toast.show();
+    }
+    
+    private void showSnackBar(String messageText) {
+        Log.i(ACTIVITY_NAME, "-- In showSnackBar()");
+        showSnackBar(messageText, null);
+    }
+    
+    private void showSnackBar(String messageText, String buttonText) {
+        // reference on how to use Snackbars: https://www.journaldev.com/10324/android-snackbar-example-tutorial
+        Log.i(ACTIVITY_NAME, "-- In showSnackBar()");
+        final Snackbar snackbar = Snackbar.make(thermostatRelativeLayout, messageText, Snackbar.LENGTH_LONG);
+        snackbar.show();
+        
+        snackbar.setAction(buttonText, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                undoDeleteThermostatEntry();
+                showSnackBar(getResources().getString(R.string.undidDelete));
+            }
+        });
+    }
+    
+    private void showCustomDialog(String messageText, String buttonPositiveText, String buttonNegativeText) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ThermostatActivity.this);
+        builder.setMessage(messageText);
+        builder.setPositiveButton(buttonPositiveText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                buttonAddTemperature.callOnClick();
+            }
+        });
+        builder.setNegativeButton(buttonNegativeText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // do nothing, just close dialog box.
+            }
+        });
+        builder.create().show();
     }
     
     
