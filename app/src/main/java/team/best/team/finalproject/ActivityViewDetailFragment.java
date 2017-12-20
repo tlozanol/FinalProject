@@ -1,7 +1,6 @@
 package team.best.team.finalproject;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -19,6 +18,7 @@ public class ActivityViewDetailFragment extends Fragment
 
     private OnItemSelectedListener mListener;
 
+    private String id;
     TextView textActivityDate;
     TextView textActivityActivity;
     TextView textActivityTime;
@@ -36,6 +36,7 @@ public class ActivityViewDetailFragment extends Fragment
     {
         Log.i(ACTIVITY_NAME, "in onCreate");
         super.onCreate(savedInstanceState);
+        setMListener(getActivity());
     }
 
     @Override
@@ -46,34 +47,62 @@ public class ActivityViewDetailFragment extends Fragment
 
         currentActivity = getArguments().getStringArrayList(ActivityViewHistory.ACTIVITY);
 
+        id = currentActivity.get(0);
+
+        for(int i = 0; i<6; i++)
+        { System.out.println(currentActivity.get(i));}
+
         textActivityDate = view.findViewById(R.id.textActivityDate);
             textActivityDate.setText(currentActivity.get(1));
         textActivityActivity = view.findViewById(R.id.textActivityActivity);
-            textActivityActivity.setText(currentActivity.get(3));
+            textActivityActivity.setText(currentActivity.get(4));
         textActivityTime = view.findViewById(R.id.textActivityTime);
-            textActivityTime.setText(currentActivity.get(2) + " minutes");
+            String time = currentActivity.get(3).isEmpty() ? "0 " + getString(R.string.minutes) : currentActivity.get(3) + getString(R.string.minutes);
+            textActivityTime.setText(time);
         textActivityNotes = view.findViewById(R.id.textActivityNotes);
-            textActivityNotes.setText(currentActivity.get(4));
+            textActivityNotes.setText(currentActivity.get(5));
+
+        buttonActivityEdit = view.findViewById(R.id.buttonActivityEdit);
+        buttonActivityDelete = view.findViewById(R.id.buttonActivityDelete);
+
+        buttonActivityEdit.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mListener.onEdit(currentActivity);
+            }
+        });
+
+        buttonActivityDelete.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mListener.onDelete(id);
+            }
+        });
 
         return view;
     }
 
-    public void onButtonPressed(Uri uri)
+    public void setMListener(Context context)
     {
+        if (context instanceof ActivityViewDetailFragment.OnItemSelectedListener)
+        {
+            mListener = (ActivityViewDetailFragment.OnItemSelectedListener) context;
+        } else
+        {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnItemSelectedListener");
+        }
     }
 
     @Override
     public void onAttach(Context context)
     {
         super.onAttach(context);
-        if (context instanceof OnItemSelectedListener)
-        {
-            mListener = (OnItemSelectedListener) context;
-        } else
-        {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnItemSelectedListener");
-        }
+        setMListener(getActivity());
     }
 
     @Override
@@ -86,5 +115,8 @@ public class ActivityViewDetailFragment extends Fragment
     public interface OnItemSelectedListener
     {
         void onSelection(ArrayList<String> activity);
+        void onDelete(String id);
+        void onEdit(ArrayList<String> activity);
+        void onAdd();
     }
 }

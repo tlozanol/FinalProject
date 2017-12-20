@@ -117,7 +117,7 @@
         android:id="@+id/buttonActivityEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonDeleteActivity"
+        android:text="@string/buttonEditActivity"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"/>
 
@@ -125,7 +125,7 @@
         android:id="@+id/buttonActivityDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonEditActivity"
+        android:text="@string/buttonDeleteActivity"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"/>
 

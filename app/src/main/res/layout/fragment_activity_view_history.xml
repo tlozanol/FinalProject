@@ -20,6 +20,37 @@
     <ListView
         android:id="@+id/listActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="375dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonSortDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonSortDay"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:id="@+id/buttonAddNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonAddActivity"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/buttonSortDay"
+            android:layout_toLeftOf="@id/buttonSortTotal"/>
+
+        <Button
+            android:id="@+id/buttonSortTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonSortTotal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

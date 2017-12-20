@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 4;
+    private static final int VERSION_NUM = 8;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
 
@@ -42,10 +42,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //ACTIVITY TRACKER TABLE
     private static final String ACTIVITY_TABLE_NAME = "ACTIVITY_TABLE";
     private static final String KEY_ACTIVITY_DAY = "DAY";
+    private static final String KEY_ACTIVITY_SORTDAY = "SORTDAY";
     private static final String KEY_ACTIVITY_TIME = "TIME";
     private static final String KEY_ACTIVITY_ACTIVITY = "ACTIVITY";
     private static final String KEY_ACTIVITY_NOTES = "NOTES";
-    private static final String[] ACTIVITY_COLUMNS = {KEY_ACTIVITY_DAY, KEY_ACTIVITY_TIME, KEY_ACTIVITY_ACTIVITY, KEY_ACTIVITY_NOTES}; // columns does not include KEY_ID
+    private static final String[] ACTIVITY_COLUMNS = {KEY_ACTIVITY_DAY, KEY_ACTIVITY_SORTDAY, KEY_ACTIVITY_TIME, KEY_ACTIVITY_ACTIVITY, KEY_ACTIVITY_NOTES}; // columns does not include KEY_ID
 
     
     
@@ -73,6 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_ACTIVITY_DAY + " TEXT, "
+                + KEY_ACTIVITY_SORTDAY + " TEXT, "
                 + KEY_ACTIVITY_TIME + " TEXT, "
                 + KEY_ACTIVITY_ACTIVITY + " TEXT,"
                 + KEY_ACTIVITY_NOTES + " TEXT"
@@ -117,7 +119,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public int getActivityItemID(int position) {
         Log.i(ACTIVITY_NAME, "-- In getActivityItemID()");
 
-        return getItemID(position, ACTIVITY_TABLE_NAME);
+        if(position == -1) return getLastItemID(ACTIVITY_TABLE_NAME);
+        else return getItemID(position, ACTIVITY_TABLE_NAME);
     }
     
     /**
@@ -139,6 +142,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         else {
             Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in position " + position);
+            return -1;
+        }
+    }
+
+    private int getLastItemID(String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In getItemID()");
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
+
+        if (cursor.moveToLast()) {
+            return Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID)));
+        }
+        else {
+            Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in last position");
             return -1;
         }
     }
