@@ -24,6 +24,7 @@
     <string name="undo">Undo</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="ok">OK</string>
 
 
     <!-- Main Menu -->
@@ -85,8 +86,6 @@
     <string name="buttonDeleteActivity">Delete</string>
     <string name="buttonEditActivity">Edit</string>
     <string name="buttonActivityHistory">View activity history</string>
-    <string name="buttonSortDay">Sort by date</string>
-    <string name="buttonSortTotal">Sort by time</string>
     <string-array name="activitiesArray">
         <item>Running</item>
         <item>Walking</item>
@@ -115,6 +114,19 @@
     <string name="biking">Biking</string>
     <string name="swimming">Swimming</string>
     <string name="skating">Skating</string>
+    <string name="activityTrackerAbout">
+        Activity Tracker App\n\n
+        Author: Catharina Kratzmann\n
+        Version: 1.0\n\n
+        Track your physical activity.\n\n
+        <u>Instructions:</u>\n\n
+        Click <b>View Activity History</b> to see your saved activities sorted by day.\n\n
+        Click <b>Add New Activity</b> to create a new activity.\n\n
+        From Activity History select a saved activity to view its details. Click <b>Edit</b> to change saved details or <b>Delete</b> to permanently remove activity from history.\n\n
+        While in Edit or Add New Activity use the options to save one of 5 different activities. An activity must have a date saved, other details are optional.\n\n
+        Clicking <b>Add</b> or <b>Save Changes</b> saves the activity to history. Clicking <b>Cancel</b> discards changes and returns to previous screen.
+    </string>
+
 
 
     <!-- Thermostat -->

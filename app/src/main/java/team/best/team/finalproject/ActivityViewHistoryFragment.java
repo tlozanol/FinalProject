@@ -58,6 +58,7 @@ public class ActivityViewHistoryFragment extends Fragment
         adapter = new ActivityListAdapter(getActivity());
 
         historyList.setAdapter(adapter);
+        updateList();
         historyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -71,55 +72,7 @@ public class ActivityViewHistoryFragment extends Fragment
             }
         });
 
-        Button buttonSortDay = view.findViewById(R.id.buttonSortDay);
-        Button buttonSortTotal = view.findViewById(R.id.buttonSortTotal);
         Button buttonAddNew = view.findViewById(R.id.buttonAddNew);
-
-        buttonSortDay.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Collections.sort(listFromDB, new Comparator<ArrayList<String>>()
-                {
-                    @Override
-                    public int compare(ArrayList<String> o1, ArrayList<String> o2)
-                    {
-
-                        Integer arg1 = o1.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o1.get(2));
-                            System.out.println(o1.get(2));
-
-                        Integer arg2 = o2.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o2.get(2));
-                            System.out.println(o2.get(2));
-
-                        return arg1.compareTo(arg2);
-                    }
-                });
-
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-        buttonSortTotal.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Collections.sort(listFromDB, new Comparator<ArrayList<String>>()
-                {
-                    @Override
-                    public int compare(ArrayList<String> o1, ArrayList<String> o2)
-                    {
-                        Integer arg1 = o1.get(3).trim().length() == 0 ? 0 : Integer.parseInt(o1.get(3));
-                        Integer arg2 = o2.get(3).trim().length() == 0 ? 0 : Integer.parseInt(o2.get(3));
-
-                        return arg2.compareTo(arg1);
-                    }
-                });
-
-                adapter.notifyDataSetChanged();
-            }
-        });
 
         buttonAddNew.setOnClickListener(new View.OnClickListener()
         {
@@ -137,6 +90,21 @@ public class ActivityViewHistoryFragment extends Fragment
     {
         listFromDB.clear();
         listFromDB = dbHelper.getActivityDBData();
+        Collections.sort(listFromDB, new Comparator<ArrayList<String>>()
+        {
+            @Override
+            public int compare(ArrayList<String> o1, ArrayList<String> o2)
+            {
+
+                Integer arg1 = o1.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o1.get(2));
+                System.out.println(o1.get(2));
+
+                Integer arg2 = o2.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o2.get(2));
+                System.out.println(o2.get(2));
+
+                return arg1.compareTo(arg2);
+            }
+        });
         adapter.notifyDataSetChanged();
     }
 
