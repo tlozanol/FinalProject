@@ -45,14 +45,38 @@
     <string name="food_tracker_fragLabel">FOOD TRACKER</string>
     <string name="food_tracker_food_itemLbl">FOOD ITEM:</string>
     <string name="food_tracker_caloriesLbl">CALORIES:</string>
-    <string name="food_tracker_total_fatLbl">TOTAL FAT</string>
-    <string name="food_tracker_total_carbsLbl">TOTAL CARBS</string>
+    <string name="food_tracker_total_fatLbl">TOTAL FAT:</string>
+    <string name="food_tracker_total_carbsLbl">TOTAL CARBS:</string>
     <string name="food_tracker_save">SAVE</string>
     <string name="food_tracker_update">UPDATE</string>
     <string name="food_tracker_delete">DELETE</string>
     <string name="food_tracker_menu_one">One</string>
     <string name="food_tracker_menu_two">Two</string>
-<!--    <string name="FTbtn_save">SAVE</string>
+    <string name="food_tracker_listTitle">FOODTRACKER LIST</string>
+    <string name="food_tracker_add_a_new_food_item">ADD NEW ITEM</string>
+    <string name="food_tracker_quit">QUIT</string>
+    <string name="food_tracker_help">HELP</string>
+
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="here_goes_the_text">
+        FOOD TRACKER\n
+        This is a food tracker app. It keeps track of the calories, total carbs and total fat of individual food items.\n\n
+        Click the I icon to view the version number and creator of this app.\n\n
+        Click QUIT to return to the beginning of the app.\n
+        Click ADD A NEW ITEM to add a new item to the Food Tracker List.This will bring you to a new page where you\n
+        can enter all information for your new entry.  At this point you may click SAVE button which will refresh your \n
+        list from the previous page.  You may also delete your entry by clicking the "Delete" button. \n\n
+        If you click on one of your items, this will bring you to a page where all the information \n
+        of this item is displayed.  At this point you may make changes to your data and click \n
+        "Update" button to refresh your list with the new changes.\n
+
+
+
+
+    </string>
+    <string name="food_tracker_closebtnHelp">CLOSE</string>
+
+    <!--    <string name="FTbtn_save">SAVE</string>
     <string name="FTbtn_Edit">EDIT</string>
     <string name="button">button_Enter</string>
     <string name="FTapple">APPLE</string>

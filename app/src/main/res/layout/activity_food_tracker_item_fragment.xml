@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/FTtxtVLblFoodTrackerTopLabel"
@@ -10,102 +11,90 @@
         android:layout_marginTop="30dp"
         android:text="@string/food_tracker_fragLabel" />
 
-
-
     <TextView
         android:id="@+id/FTtextVLblItemName"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTtxtVLblFoodTrackerTopLabel"
-        android:text="@string/food_tracker_food_itemLbl"
-        />
+        android:layout_marginTop="40dp"
+        android:text="@string/food_tracker_food_itemLbl" />
 
     <EditText
         android:id="@+id/FTeditTxtItemName"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTtxtVLblFoodTrackerTopLabel"
-        android:layout_toEndOf="@+id/FTtextVLblItemName" android:inputType="" />
-
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/FTtextVLblItemName"
+        android:inputType="" />
 
     <TextView
         android:id="@+id/FTtxtVLblCalories"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTtextVLblItemName"
+        android:layout_marginTop="40dp"
         android:text="@string/food_tracker_caloriesLbl" />
 
     <EditText
         android:id="@+id/FTeditTxtCalories"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTeditTxtItemName"
-        android:layout_toEndOf="@+id/FTtxtVLblCalories" android:inputType=""/>
-
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/FTtxtVLblCalories"
+        android:inputType="" />
 
     <TextView
         android:id="@+id/FTtxtVLblTotalFat"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTtxtVLblCalories"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="@string/food_tracker_total_fatLbl" />
 
     <EditText
         android:id="@+id/FTeditTxtTotalFat"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTeditTxtCalories"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/FTtxtVLblTotalFat"
-        android:layout_marginTop="5dp" android:inputType=""/>
+        android:inputType="" />
 
     <TextView
         android:id="@+id/FTtxtVLblTotalCarbs"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTtxtVLblTotalFat"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="@string/food_tracker_total_carbsLbl" />
 
 
     <EditText
         android:id="@+id/FTeditTxtTotalCarbs"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_below="@id/FTeditTxtTotalFat"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/FTtxtVLblTotalCarbs"
-        android:layout_marginTop="5dp" android:inputType=""/>
-
+        android:inputType="" />
 
     <Button
         android:id="@+id/FTbtnSaveMess"
-        android:layout_width="80dp"
+        android:layout_width="135dp"
         android:layout_height="40dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:text="@string/food_tracker_save" />
 
     <Button
-        android:id="@+id/FTbtnUpdateMesg"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_toEndOf="@id/FTbtnSaveMess"
-        android:layout_alignParentBottom="true"
-        android:text="@string/food_tracker_update" />
-
-    <Button
         android:id="@+id/FTbtnDeleteMesg"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_toEndOf="@+id/FTbtnUpdateMesg"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:text="@string/food_tracker_delete" />
-
-
 
 
 </RelativeLayout>

@@ -60,11 +60,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //ACTIVITY FOOD TRACKER
     private static final String FOODTRACKER_TABLE_NAME = "FOODTRACKER_TABLE";
+    private static final String KEY_FOODTRACKER_NAME = "NAME";
     private static final String KEY_FOODTRACKER_CALORIES = "CALORIES";
-    private static final String KEY_FOODTRACKER_TOTAL_CARBS = "TOTAL_CARBS";
     private static final String KEY_FOODTRACKER_TOTAL_FAT = "TOTAL_FAT";
-    private static final String KEY_FOODTRACKER_DAY = "DAY";
-    private static final String[] FOODTRACKER_COLUMNS = {KEY_FOODTRACKER_CALORIES, KEY_FOODTRACKER_TOTAL_CARBS, KEY_FOODTRACKER_TOTAL_FAT,KEY_FOODTRACKER_DAY }; // columns does not include KEY_ID
+    private static final String KEY_FOODTRACKER_TOTAL_CARBS = "TOTAL_CARBS";
+    private static final String[] FOODTRACKER_COLUMNS = {KEY_FOODTRACKER_NAME, KEY_FOODTRACKER_CALORIES, KEY_FOODTRACKER_TOTAL_FAT, KEY_FOODTRACKER_TOTAL_CARBS}; // columns does not include KEY_ID
     
    
     
@@ -110,14 +110,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_DATE + " TEXT"
                 + " );");
         
-        // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
+        // CREATE TABLE FOOD_TABLE (_ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, CALORIES TEXT, TOTAL_FAT TEXT, TOTAL_CARBS TEXT);
         db.execSQL("CREATE TABLE " + FOODTRACKER_TABLE_NAME
                 + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_FOODTRACKER_NAME + " TEXT, "
                 + KEY_FOODTRACKER_CALORIES + " TEXT, "
-                + KEY_FOODTRACKER_TOTAL_CARBS + " TEXT,"
                 + KEY_FOODTRACKER_TOTAL_FAT + " TEXT,"
-                + KEY_FOODTRACKER_DAY + " TEXT"
+                + KEY_FOODTRACKER_TOTAL_CARBS + " TEXT"
                 + " );");
     }
     

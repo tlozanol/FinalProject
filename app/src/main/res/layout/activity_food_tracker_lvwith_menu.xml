@@ -2,37 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/foodActivityRelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:maxHeight="100dp"
-    tools:context="team.best.team.finalproject.FoodTrackerLVwithMenu"
-    android:orientation="horizontal">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp" />
+    android:orientation="horizontal"
+    tools:context="team.best.team.finalproject.FoodTrackerLVwithMenu">
 
     <TextView
         android:id="@+id/FTTxtVTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:text="FOODTRACKER LIST"/>
+        android:text="@string/food_tracker_listTitle"
+        android:textSize="20sp" />
 
     <ListView
-
-        android:id="@+id/FTListView"
+        android:id="@+id/ftListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/FTbtnAddFoodItem"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_below="@id/FTTxtVTitle"
-        android:layout_above="@id/FTbtnAddFoodItem"/>
+        android:layout_marginTop="45dp" />
     <!--
     <EditText
         android:id="@+id/editText"
@@ -46,22 +40,34 @@
 
     <Button
         android:id="@+id/FTbtnAddFoodItem"
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="40dp"
-        android:paddingBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"
+        android:text="@string/food_tracker_add_a_new_food_item" />
 
-        android:text="ADD A NEW FOOD ITEM" />
+    <Button
+        android:id="@+id/FTbtnHelp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+
+        android:text="@string/food_tracker_help"
+
+
+        />
 
     <Button
         android:id="@+id/FTbtnQuit"
-        android:layout_width="120dp"
+        android:layout_width="80dp"
         android:layout_height="40dp"
-        android:paddingBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="10dp"
 
-        android:text="QUIT" />
+        android:text="@string/food_tracker_quit" />
 </RelativeLayout>
 

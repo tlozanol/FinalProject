@@ -8,6 +8,13 @@
     android:backgroundTint="@android:color/holo_orange_light"
     tools:context="team.best.team.finalproject.FoodTrackerActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -15,8 +22,7 @@
 
         android:layout_above="@+id/splashsreenImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="76dp"
-        android:autoSizeMaxTextSize="@android:dimen/app_icon_size"
+        android:layout_marginBottom="20dp"
         android:text="@string/food_tracker_welcome"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
@@ -40,12 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:visibility="invisible"
-
-
         />
 
     <Button
@@ -54,7 +58,7 @@
         android:layout_height="59dp"
         android:layout_below="@+id/splashsreenImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="10dp"
         android:text="@string/food_tracker_click_here_to_start" />
 
 
