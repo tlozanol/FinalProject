@@ -34,6 +34,46 @@
 
 
     <!-- Food Tracker -->
+    <string name="foodTrackerTitle">Traqueur d\'aliments</string>
+    <string name="FTBtnadd_new_food_item">Ajouter produit alimentaire</string>
+    <string name="FTEditTxtenter_name_of_new_food">Entrer nom de l\'aliment</string>
+    <string name="food_tracker_welcome">BIENVENUE - TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_click_here_to_start">CLIQUEZ ICI POUR DÉBUTER</string>
+    <string name="food_tracker_splashscreen">splashscreen</string>
+    <string name="food_tracker_fragLabel">TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_food_itemLbl">ALIMENT:</string>
+    <string name="food_tracker_caloriesLbl">CALORIES:</string>
+    <string name="food_tracker_total_fatLbl">GRAS:</string>
+    <string name="food_tracker_total_carbsLbl">GLUCIDES:</string>
+    <string name="food_tracker_save">SAUVEGARDER</string>
+    <string name="food_tracker_update">METTRE À JOUR</string>
+    <string name="food_tracker_delete">EFFACER</string>
+    <string name="food_tracker_menu_one">Un</string>
+    <string name="food_tracker_menu_two">Deux</string>
+    <string name="food_tracker_listTitle">LISTE TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_add_a_new_food_item">AJOUTER ALIMENT</string>
+    <string name="food_tracker_quit">QUITTER</string>
+    <string name="food_tracker_help">AIDE</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="here_goes_the_text">
+         TRAQUEUR D\'ALIMENTS\n
+        Le traqueur d\'aliments est une application qui vous laisse enregistrer les calories, les gras et les glucides \n
+        des aliments que vous entrer dans votre liste. \n\n
+        Cliquez l\'icone au-dessus à la droite pour voir la version et le créateur de cette application. \n
+        Cliquez FIN pour terminer l\'application. \n
+        Cliquez AJOUTER UN ITEM pour ajouter un item à votre liste.  Ceci vous transportera à une nouvelle page ou \n
+        vous pouvez entrer tous les informations de votre item.  Vous pouver cliquez the bouton SAUVEGARDER et ceci \n
+        va renouveler votre liste de la page précédente. Vous pouvez aussi cliquez le bouton EFFACER. \n
+        Si vous mettez votre souris sur un item de la liste et cliquez ceci va vous transporter à une page ou \n
+        vous pouvez faire des changements à votre item. Une fois les changements faits vous pouvez cliquez le \n
+        bouton UPDATE et les informations vont être sauvegarder et la liste va être renouvelée. \n
+
+
+
+    </string>
+
+    <string name="food_tracker_closebtnHelp">FERMER</string>
+
 
 
     <!-- Activity Tracker -->
@@ -66,6 +106,7 @@
         Cliquez sur annuler dans la fenêtre d\'édition pour annuler vos modifications.\n
         Cliquez sur supprimer dans la fenêtre d\'édition pour supprimer cette entrée.\n
         </string>
+
 
 
     <!-- Automobile -->
