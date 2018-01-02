@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 8;
+    private static final int VERSION_NUM = 9;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
 
