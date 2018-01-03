@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projecto Final</string>
+
+    <!-- One Worders -->
+    <string name="add">Agregar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="day">Dia</string>
+    <string name="date">Fecha</string>
+    <string name="save">Guardar</string>
+    <string name="temperature">Temperatura</string>
+    <string name="time">Tiempo</string>
+    <string name="sunday">Domingo</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miercoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sabado</string>
+    <string name="loading">Cargando</string>
+    <string name="select">Seleccionar:</string>
+    <string name="about">Acerca de</string>
+    <string name="back">Volver</string>
+    <string name="undo">Deshacer</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="delete">Borrar</string>
+
+
+    <!-- Main Menu -->
+    <string name="mainMenuTitle">Menu Principal</string>
+    <string name="buttonToFoodTracker">Registro de Comida</string>
+    <string name="buttonToActivityTracker">Registro de Actividad</string>
+    <string name="buttonToThermostat">Termostato</string>
+    <string name="buttonToAutomobile">Automobil</string>
+
+
+    <!-- Food Tracker -->
+    <string name="foodTrackerTitle">Food Tracker</string>
+    <string name="FTBtnadd_new_food_item">Add New Food Item</string>
+    <string name="FTEditTxtenter_name_of_new_food">Enter Name of new Food</string>
+    <string name="food_tracker_welcome">WELCOME TO FOOD TRACKER</string>
+    <string name="food_tracker_click_here_to_start">CLICK HERE TO START FOODTRACKER</string>
+    <string name="food_tracker_splashscreen">splashscreen</string>
+    <string name="food_tracker_fragLabel">FOOD TRACKER</string>
+    <string name="food_tracker_food_itemLbl">FOOD ITEM:</string>
+    <string name="food_tracker_caloriesLbl">CALORIES:</string>
+    <string name="food_tracker_total_fatLbl">TOTAL FAT</string>
+    <string name="food_tracker_total_carbsLbl">TOTAL CARBS</string>
+    <string name="food_tracker_save">SAVE</string>
+    <string name="food_tracker_update">UPDATE</string>
+    <string name="food_tracker_delete">DELETE</string>
+    <string name="food_tracker_menu_one">One</string>
+    <string name="food_tracker_menu_two">Two</string>
+
+
+    <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Activity Tracker</string>
+    <string name="activityHistoryTitle">Your activity history</string>
+    <string name="activityAddTitle">Add a new activity</string>
+    <string name="activityDetailTitle">Activity details</string>
+    <string name="activityDateHint">Date</string>
+    <string name="activityTimeHint">Time spent in minutes</string>
+    <string name="activityActivityLabel">Activity</string>
+    <string name="activityTime">Time</string>
+    <string name="activityNotesTitle">Notes</string>
+    <string name="activityNotesHint">ex: This felt easy</string>
+    <string name="buttonAddActivity">Add new activity</string>
+    <string name="buttonDeleteActivity">Delete</string>
+    <string name="buttonEditActivity">Edit</string>
+    <string name="buttonActivityHistory">View activity history</string>
+    <string-array name="activitiesArray">
+        <item>Correr</item>
+        <item>Caminar</item>
+        <item>Bicicleta</item>
+        <item>Nadar</item>
+        <item>Patinar</item>
+    </string-array>
+
+
+    <!-- Thermostat -->
+    <string name="thermostatAddTitle">Add Entry</string>
+    <string name="thermostatEditTitle">Edit Entry</string>
+    <string name="thermostatDeleteEntry">Delete Entry</string>
+    <string name="thermostatEntriesTitle">Thermostat Entries</string>
+    <string name="noEntriesFound">No entries found. Add one now?</string>
+    <string name="entryAdded">Entry added!</string>
+    <string name="entrySaved">Entry saved!</string>
+    <string name="entryDeleted">Entry deleted!</string>
+    <string name="undidDelete">Undid delete!</string>
+    <string name="thermostatAbout">
+        Thermostat App\n
+        Produced by: Joel Janzen\n
+        Version Number: 1.0\n\n
+        This app tracks a schedule for a thermostat.\n\n
+        Instructions\n
+        Click Back in this window to return to the app.\n\n
+        Click Add in the main window to add a new thermostat entry.\n
+        This will bring you to the edit window.\n
+        In the edit window, you can set the day, time, and temperature.\n
+        Click Save in the edit window to save your new entry.\n\n
+        Click an existing entry in the main window to edit it.\n
+        This will bring you to the edit window.\n
+        Click Save in the edit window to save your edits.\n
+        Click Cancel in the edit window to cancel your edits.\n
+        Click Delete in the edit window to delete this entry.\n
+        </string>
+
+
+    <!-- Automobile -->
+    <string name="automobileTitle">Automobil</string>
+    <string name="automobileEntriesTitle">Automobile Entries</string>
+    <string name="carModel">Modelo de Auto</string>
+    <string name="gas">Tipo de Gasolina: </string>
+    <string name="price">Precio de Gasolina: </string>
+    <string name="liters">Litros Comprados: </string>
+    <string name="avgKms">Kilometros Promedio: </string>
+    <string name="savePurchase">Guardar Compra</string>
+    <string name="seeHistory">Ver Historia</string>
+    <string name="inputType">Que tipo de Auto?</string>
+    <string name="inputGas">Tipo de Combustible?</string>
+    <string name="inputPrice">How much per liter?</string>
+    <string name="inputLiters">Cuantos Litros?</string>
+    <string name="inputAvgKm">Kilometros por Litro</string>
+    <string name="automobileSnackbar">Compra de Combustible Agregada</string>
+    <string name="automobileToast">Compra de Combustible Editada</string>
+    <string name="automobileToast2">Compra de Combustible Eliminada</string>
+    <string name="automobileAbout">
+        \nGas Purchase App\n
+        Produced by: Tomas Lozano\n\n
+        Instructions:\n
+        Click in the Add button to add a new Gas Purchase\n\n
+        This will bring you to the save page\n
+        Here you can save your new purchase by putting a date\n
+        type of car, Gas type, Gas price and liters.\n
+        This will show the average kilometers that you should\n
+        be able to drive with this purchase\n\n
+        Also when you return to the main page, you will see\n
+        the date of each purchase. By clicking here you can edit\n
+        this purchase, delete it or see the history your purchases\n
+        depending on the filters that you apply.\n
+    </string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="dateToast">Debes Ingresar una Fecha</string>
+    <string name="addedSnack">Actividad agregada</string>
+
+
+</resources>

@@ -81,6 +81,7 @@ public class AutomobileActivity extends Activity {
 
         Button aboutButton = findViewById(R.id.automobileAbout);
         aboutButton.setOnClickListener(new View.OnClickListener() {
+            
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AutomobileActivity.this, Automobile_about.class);
