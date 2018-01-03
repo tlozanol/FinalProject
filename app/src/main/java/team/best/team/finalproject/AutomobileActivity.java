@@ -78,6 +78,15 @@ public class AutomobileActivity extends Activity {
                 startActivityForResult(addGasPurchase, AUTOMOBILE_REQUEST_ADD);
             }
         });
+
+        Button aboutButton = findViewById(R.id.automobileAbout);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AutomobileActivity.this, Automobile_about.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private Bundle createAutomobileAddBundle(){
@@ -171,12 +180,11 @@ public class AutomobileActivity extends Activity {
             }
             if (resultCode == AUTOMOBILE_RESULT_DELETE) {
                 Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Delete");
-                Log.i(ACTIVITY_NAME, "-- first ID is:" + automobileArray.get(0).get(0));
 
                 int IDDeleteData = data.getIntExtra("ID", 0);
 
-           /* deletedEntry = automobileArray.get(positionClicked);
-            deletedEntry.remove(0);*/
+                deletedEntry = automobileArray.get(positionClicked);
+                deletedEntry.remove(0);
                 showToast(getResources().getString(R.string.automobileToast2));
 
                 dataBaseHelper.deleteAutomobileDBEntry(IDDeleteData);

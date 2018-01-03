@@ -73,19 +73,20 @@
 
     <EditText
         android:id="@+id/carDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:textSize="14sp"
         android:inputType="date"
         android:hint="@string/date"
         android:layout_above="@+id/carText"
         android:layout_alignStart="@+id/carText"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/carText"
         android:drawSelectorOnTop="true"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:text="@string/inputGas"
+        android:hint="@string/inputType"
         android:textSize="14sp"
         android:layout_above="@+id/gasText"
         android:layout_alignStart="@+id/gasText"
@@ -95,6 +96,7 @@
         android:id="@+id/gasText"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:inputType="number"
         android:layout_alignBaseline="@+id/gasCar"
         android:layout_alignBottom="@+id/gasCar"
         android:layout_toEndOf="@+id/avgkm"
@@ -105,6 +107,7 @@
         android:id="@+id/priceText"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:inputType="number"
         android:layout_alignBaseline="@+id/gasPrice"
         android:layout_alignBottom="@+id/gasPrice"
         android:layout_toEndOf="@+id/avgkm"
@@ -115,6 +118,7 @@
         android:id="@+id/litersText"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:inputType="number"
         android:layout_alignBaseline="@+id/liters"
         android:layout_alignBottom="@+id/liters"
         android:layout_toEndOf="@+id/avgkm"
@@ -129,6 +133,17 @@
         android:layout_alignBottom="@+id/avgkm"
         android:layout_toEndOf="@+id/avgkm"
         android:hint="@string/inputAvgKm"
+        android:focusable="false"
+        android:clickable="false"
         android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/saveButton" />
 
 </RelativeLayout>

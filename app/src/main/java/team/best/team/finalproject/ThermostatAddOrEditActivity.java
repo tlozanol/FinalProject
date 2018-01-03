@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class ThermostatAddOrEditActivity extends Activity {
-    
+
     private static final String ACTIVITY_NAME = "ThermostatAddOrEditA";
     
     TextView thermostatProgressBarText;

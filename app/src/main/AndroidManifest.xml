@@ -28,6 +28,9 @@
         <activity android:name=".FoodTrackerItemDetails" />
         <activity android:name=".FoodTrackerLVwithMenu" />
         <activity android:name=".ThermostatAbout" />
+        <activity android:name=".Automobile_LoadingBar" />
+        <activity android:name=".AutomobileFragment" />
+        <activity android:name=".Automobile_about"></activity>
     </application>
 
 </manifest>

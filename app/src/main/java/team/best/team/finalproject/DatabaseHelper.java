@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 5;
+    private static final int VERSION_NUM = 8;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
 
@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_GAS_LITERS = "LITERS";
     private static final String KEY_AVG_KM = "AVGKM";
     private static final String KEY_DATE = "DATE";
-    private static final String[] AUTOMOBILE_COLUMNS = {KEY_AUTOMOBILE_TYPE, KEY_GAS_TYPE, KEY_GAS_PRICE, KEY_GAS_LITERS, KEY_AVG_KM, KEY_DATE}; // columns does not include KEY_ID
+    private static final String[] AUTOMOBILE_COLUMNS = {KEY_DATE, KEY_AUTOMOBILE_TYPE, KEY_GAS_TYPE, KEY_GAS_PRICE, KEY_GAS_LITERS, KEY_AVG_KM}; // columns does not include KEY_ID
 
     //ACTIVITY FOOD TRACKER
     private static final String FOODTRACKER_TABLE_NAME = "FOODTRACKER_TABLE";
@@ -100,12 +100,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + AUTOMOBILE_TABLE_NAME
                 + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_DATE + " TEXT, "
                 + KEY_AUTOMOBILE_TYPE + " TEXT, "
                 + KEY_GAS_TYPE + " TEXT, "
                 + KEY_GAS_PRICE + " TEXT,"
                 + KEY_GAS_LITERS + " TEXT,"
-                + KEY_AVG_KM + " TEXT,"
-                + KEY_DATE + " TEXT"
+                + KEY_AVG_KM + " TEXT"
                 + " );");
         
         // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
@@ -264,7 +264,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ArrayList<String>> getAutomobileDBData() {
-        Log.i(ACTIVITY_NAME, "-- In getActivityDBData()");
+        Log.i(ACTIVITY_NAME, "-- In getAutomobileDBData()");
 
         return getDBData(AUTOMOBILE_TABLE_NAME);
     }
@@ -328,7 +328,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void deleteAutomobileDBEntry(int ID) {
-        Log.i(ACTIVITY_NAME, "-- In deleteActivityDBEntry()");
+        Log.i(ACTIVITY_NAME, "-- In deleteAutomobileDBEntry()");
 
         deleteDBEntry(ID, AUTOMOBILE_TABLE_NAME);
     }
@@ -371,7 +371,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateAutomobileDBEntry(int ID, ArrayList<String> newData) {
-        Log.i(ACTIVITY_NAME, "-- In updateActivityDBEntry()");
+        Log.i(ACTIVITY_NAME, "-- In updateAutomobileDBEntry()");
 
         updateDBEntry(ID, newData, AUTOMOBILE_TABLE_NAME, AUTOMOBILE_COLUMNS);
     }

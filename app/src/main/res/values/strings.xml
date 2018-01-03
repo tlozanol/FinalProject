@@ -23,6 +23,7 @@
     <string name="undo">Undo</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="delete">Delete</string>
 
 
     <!-- Main Menu -->
@@ -50,7 +51,7 @@
     <string name="food_tracker_delete">DELETE</string>
     <string name="food_tracker_menu_one">One</string>
     <string name="food_tracker_menu_two">Two</string>
-<!--    <string name="FTbtn_save">SAVE</string>
+    <!--    <string name="FTbtn_save">SAVE</string>
     <string name="FTbtn_Edit">EDIT</string>
     <string name="button">button_Enter</string>
     <string name="FTapple">APPLE</string>
@@ -132,26 +133,35 @@
     <string name="avgKms">Average Kilometers: </string>
     <string name="savePurchase">Save Purchase</string>
     <string name="seeHistory">See History</string>
+    <string name="inputType">Which Type of car?</string>
     <string name="inputGas">Which gas?</string>
     <string name="inputPrice">How much per liter?</string>
     <string name="inputLiters">How many liters?</string>
     <string name="inputAvgKm">Kilometers per Liter</string>
     <string name="automobileSnackbar">Gas Purchase Added</string>
-    <string-array name="listOfCars">
-        <item>Sedan</item>
-        <item>Minivan</item>
-        <item>Coupe</item>
-        <item>Sports Car</item>
-        <item>Hatchback</item>
-        <item>Pickup Truck</item>
-    </string-array>
+    <string name="automobileToast">Gas Purchase Edited</string>
+    <string name="automobileToast2">Gas Purchase Deleted</string>
+    <string name="automobileAbout">
+        \nGas Purchase App\n
+        Produced by: Tomas Lozano\n\n
+        Instructions:\n
+        Click in the Add button to add a new Gas Purchase\n\n
+        This will bring you to the save page\n
+        Here you can save your new purchase by putting a date\n
+        type of car, Gas type, Gas price and liters.\n
+        This will show the average kilometers that you should\n
+        be able to drive with this purchase\n\n
+        Also when you return to the main page, you will see\n
+        the date of each purchase. By clicking here you can edit\n
+        this purchase, delete it or see the history your purchases\n
+        depending on the filters that you apply.\n
+    </string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dateToast">You must enter a date</string>
     <string name="addedSnack">Activity added</string>
-
 
 
 </resources>
