@@ -22,7 +22,7 @@
 
         android:layout_above="@+id/splashsreenImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/food_tracker_welcome"
         android:textAllCaps="true"
         android:textColor="@android:color/black"

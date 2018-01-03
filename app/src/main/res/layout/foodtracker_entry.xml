@@ -17,10 +17,18 @@
         android:layout_toEndOf="@+id/textFoodTrackerName" />
 
     <TextView
+        android:id="@+id/textFoodTrackerFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/textFoodTrackerCal"
+        />
+
+    <TextView
         android:id="@+id/textFoodTrackerCarbs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/textFoodTrackerCal" />
+        android:layout_toEndOf="@+id/textFoodTrackerFat" />
 
 </RelativeLayout>

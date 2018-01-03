@@ -291,7 +291,9 @@ public class FoodTrackerLVwithMenu extends Activity {
             
             TextView editTextItemName = result.findViewById(R.id.textFoodTrackerName);
             TextView editTextCal = result.findViewById(R.id.textFoodTrackerCal);
+            TextView editTextFat = result.findViewById(R.id.textFoodTrackerFat);
             TextView editTextCarbs = result.findViewById(R.id.textFoodTrackerCarbs);
+            
     
             
             // getItem(s) unnecessary since we are parsing through the ArrayList in getView
@@ -303,8 +305,9 @@ public class FoodTrackerLVwithMenu extends Activity {
             Log.i(ACTIVITY_NAME, "---- carbs: " + row.get(4));
             
             editTextItemName.setText(row.get(1));
-            editTextCal.setText(row.get(2));
-            editTextCarbs.setText(row.get(4));
+            editTextCal.setText("Cal: " +row.get(2));
+            editTextFat.setText("Fat: " + row.get(3));
+            editTextCarbs.setText("Carbs: " + row.get(4));
             
             return result;
         }
