@@ -1,106 +1,102 @@
 package team.best.team.finalproject;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.Snackbar;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class FoodTrackerLVwithMenu extends AppCompatActivity {
+public class FoodTrackerLVwithMenu extends Activity {
     
     protected static final String ACTIVITY_NAME = "FoodTrackerListVIewMenu";
     
     private final int FOODTRACKER_REQUEST_ADD = 10;
     private final int FOODTRACKER_REQUEST_EDIT = 20;
-    private final int FOODTRACKER_RESULT_SAVE = 30; // cancel not included, since it acts as Back button
-    private final int FOODTRACKER_RESULT_DELETE = 40;
-    
+    private final int FOODTRACKER_RESULT_SAVE = 100; // cancel not included, since it acts as Back button
+    private final int FOODTRACKER_RESULT_DELETE = 200;
     
     //// SETTING FOR THE DATABASE HERE
     ArrayList<ArrayList<String>> foodtrackerArray = new ArrayList<>();
     
     DatabaseHelper databaseHelper;
-    ListView listFoodtracker;
-    FoodTrackerLVwithMenu.FoodTrackerListAdapter foodTrackerListAdapter;
+    ListView ftListView;
+    FoodTrackerListAdapter foodtrackerListAdapter;
     SQLiteDatabase writableDatabase;
-  
+    
+    Button buttonAddFoodTracker;
+    Button buttonHelpFoodTracker;
+    
+    RelativeLayout foodActivityRelativeLayout;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_tracker_lvwith_menu);
         Log.i(ACTIVITY_NAME, "-- In onCreate()");
-    
+        
         databaseHelper = new DatabaseHelper(this);
         writableDatabase = databaseHelper.getWritableDatabase();
         foodtrackerArray = databaseHelper.getFoodTrackerDBData();
-        
-        listFoodtracker = findViewById(R.id.FTListView);
-        foodTrackerListAdapter = new FoodTrackerListAdapter(this);
-        listFoodtracker.setAdapter(foodTrackerListAdapter);
-        
- 
     
-        listFoodtracker.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        foodActivityRelativeLayout = findViewById(R.id.foodActivityRelativeLayout);
+        
+        
+        //// LISTVIEW
+        ftListView = findViewById(R.id.ftListView);
+        foodtrackerListAdapter = new FoodTrackerListAdapter(this);
+        ftListView.setAdapter(foodtrackerListAdapter);
+        ftListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long position) {
-                Bundle thermostatEntryBundle = createFoodTrackerAddBundle();
-                Intent goToThermostatEdit = new Intent(FoodTrackerLVwithMenu.this, ThermostatAddOrEditActivity.class);
-                goToThermostatEdit.putExtras(thermostatEntryBundle);
-                startActivityForResult(goToThermostatEdit, FOODTRACKER_REQUEST_EDIT);
+                Bundle foodtrackerEntryBundle = createFoodTrackerEditBundle((int) position);
+                Intent goToFoodTrackerEdit = new Intent(FoodTrackerLVwithMenu.this, FoodTrackerItemDetails.class);
+                goToFoodTrackerEdit.putExtras(foodtrackerEntryBundle);
+                startActivityForResult(goToFoodTrackerEdit, FOODTRACKER_REQUEST_EDIT);
             }
         });
         
-            Button btnAddFoodItem = findViewById(R.id.FTbtnAddFoodItem);
+        //// ADD BUTTON
+        Button btnAddFoodItem = findViewById(R.id.FTbtnAddFoodItem);
         btnAddFoodItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle foodtrackerEntryBundle = createFoodTrackerAddBundle();
-                Intent goToFoodTrackerAdd = new Intent(FoodTrackerLVwithMenu.this, FoodTrackerItemFragment.class);
-                goToFoodTrackerAdd.putExtras(foodtrackerEntryBundle);
-                startActivityForResult(goToFoodTrackerAdd, FOODTRACKER_REQUEST_ADD);
+                Intent goToFoodTrackerFragment = new Intent(FoodTrackerLVwithMenu.this, FoodTrackerItemDetails.class);
+                goToFoodTrackerFragment.putExtras(foodtrackerEntryBundle);
+                startActivityForResult(goToFoodTrackerFragment, FOODTRACKER_REQUEST_ADD);
             }
         });
- 
-   
         
-        
-        
-        ////    TOOLBAR CODING
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-    
-        //// ADD BUTTON
-        Button btnAddFoodItem2 = findViewById(R.id.FTbtnAddFoodItem);
-        btnAddFoodItem2.setOnClickListener(new View.OnClickListener(){
-        
-        
+        //// HELP BUTTON
+        Button btnFoodTrackerHelp = findViewById(R.id.FTbtnHelp);
+        btnFoodTrackerHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToFoodTrackerFragment = new Intent(FoodTrackerLVwithMenu.this, FoodTrackerItemDetails.class);
-                startActivity(goToFoodTrackerFragment);
+                Intent goToFoodTrackerHelp = new Intent(FoodTrackerLVwithMenu.this, FoodTrackerHelp.class);
+                startActivity(goToFoodTrackerHelp);
             }
         });
-    
+        /*
+        ////    TOOLBAR MENU CODING
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);*/
+        
         //// QUIT BUTTON
         Button ftBtnQuit = findViewById(R.id.FTbtnQuit);
         ftBtnQuit.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +122,7 @@ public class FoodTrackerLVwithMenu extends AppCompatActivity {
                 alert.show();
             }
         });
-     
+        
         
     }
     
@@ -137,6 +133,7 @@ public class FoodTrackerLVwithMenu extends AppCompatActivity {
         foodtrackerEntryBundle.putString("Name", " ");
         foodtrackerEntryBundle.putString("Cal", "");
         foodtrackerEntryBundle.putString("Fat", "");
+        foodtrackerEntryBundle.putString("Carbs", "");
         
         return foodtrackerEntryBundle;
     }
@@ -146,6 +143,7 @@ public class FoodTrackerLVwithMenu extends AppCompatActivity {
         String clickedItemName = foodtrackerArray.get(position).get(1);
         String clickedCal = foodtrackerArray.get(position).get(2);
         String clickedFat = foodtrackerArray.get(position).get(3);
+        String clickedCarbs = foodtrackerArray.get(position).get(4);
         
         
         Bundle foodtrackerEntryBundle = new Bundle();
@@ -154,40 +152,125 @@ public class FoodTrackerLVwithMenu extends AppCompatActivity {
         foodtrackerEntryBundle.putString("Name", clickedItemName);
         foodtrackerEntryBundle.putString("Cal", clickedCal);
         foodtrackerEntryBundle.putString("Fat", clickedFat);
+        foodtrackerEntryBundle.putString("Carbs", clickedCarbs);
         
         return foodtrackerEntryBundle;
     }
     
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(ACTIVITY_NAME, "-- In onResume()");
+        
+        refreshFoodTrackerListView();
+    }
     
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(ACTIVITY_NAME, "-- In onActivityResult()");
+        
+        if (requestCode == FOODTRACKER_REQUEST_ADD) {
+            if (resultCode == FOODTRACKER_RESULT_SAVE) {
+                // Save in Add
+                Log.i(ACTIVITY_NAME, "---- Clicked Save in Add");
     
+                ////  ADD SNACKBAR TO SAVE BUTTON
+                Snackbar.make(foodActivityRelativeLayout, "Your Food Item has been saved!", Snackbar.LENGTH_SHORT).show();
+                String newName = data.getStringExtra("Name");
+                String newCal = data.getStringExtra("Cal");
+                String newFat = data.getStringExtra("Fat");
+                String newCarbs = data.getStringExtra("Carbs");
+                
+                Log.i(ACTIVITY_NAME, "-- After getExtras");
+                
+                ArrayList<String> dataToDB = new ArrayList<>();
+                dataToDB.add(newName);
+                dataToDB.add(newCal);
+                dataToDB.add(newFat);
+                dataToDB.add(newCarbs);
     
-    //// MENU OPTIONS AND PROPERTIES
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            // Inflate the menu items for use in the action bar
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.foodtracker_my_navigation_menu, menu);
-            return true;
-        }
+                Log.i(ACTIVITY_NAME, "-- After adding to ArrayList");
     
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle presses on the action bar items
-            switch (item.getItemId()) {
-                case R.id.action_one:
-                    //show a Toast
-                    Toast t = Toast.makeText(this, "Version 1.0, by Nathalie Beaudry", Toast.LENGTH_LONG);
-                    t.show();
-                    break;
-                case R.id.action_two:
-                    //launch another Activity
-                    Toast t2 = Toast.makeText(this, "instructions", Toast.LENGTH_LONG);
-                    t2.show();
-                    break;
-              
+                Log.i(ACTIVITY_NAME, "-- About to insert data into DB:");
+                Log.i(ACTIVITY_NAME, "-- Name: " + newName);
+                Log.i(ACTIVITY_NAME, "-- Cal: " + newCal);
+                Log.i(ACTIVITY_NAME, "-- Fat: " + newFat);
+                Log.i(ACTIVITY_NAME, "-- Carbs: " + newCarbs);
+    
+                databaseHelper.addFoodTrackerDBEntry(dataToDB);
+                
+                Log.i(ACTIVITY_NAME, "-- After adding to database");
             }
-            return true;
+            
+        } else if (requestCode == FOODTRACKER_REQUEST_EDIT) {
+            if (resultCode == FOODTRACKER_RESULT_SAVE) {
+                // Save in Edit
+                //Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Save");
+                
+                int IDToUpdate = data.getIntExtra("ID", 1);
+                String newName = data.getStringExtra("Name");
+                String newCal = data.getStringExtra("Cal");
+                String newFat = data.getStringExtra("Fat");
+                String newCarbs = data.getStringExtra("Carbs");
+                
+                ArrayList<String> dataToUpdateInDB = new ArrayList<>();
+                dataToUpdateInDB.add(newName);
+                dataToUpdateInDB.add(newCal);
+                dataToUpdateInDB.add(newFat);
+                dataToUpdateInDB.add(newCarbs);
+                
+                databaseHelper.updateFoodTrackerDBEntry(IDToUpdate, dataToUpdateInDB);
+            } else if (resultCode == FOODTRACKER_RESULT_DELETE) {
+                // Delete in Edit
+                //Log.i(ACTIVITY_NAME, "-- -- Returned from Edit: Delete");
+                
+                int IDToDelete = data.getIntExtra("ID", 0);
+                
+                databaseHelper.deleteFoodTrackerDBEntry(IDToDelete);
+            }
+            
         }
+    }
+    
+    
+    private void refreshFoodTrackerListView() {
+        
+        databaseHelper = new DatabaseHelper(this);
+        writableDatabase = databaseHelper.getWritableDatabase();
+        foodtrackerArray = databaseHelper.getFoodTrackerDBData();
+        foodtrackerListAdapter = new FoodTrackerListAdapter(this);
+        ftListView.setAdapter(foodtrackerListAdapter);
+    }
+    /*
+    //// MENU OPTIONS AND PROPERTIES
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.foodtracker_my_navigation_menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_one:
+                //show a Toast
+                Toast t = Toast.makeText(this, "Version 1.0, by Nathalie Beaudry", Toast.LENGTH_LONG);
+                t.show();
+                break;
+//                case R.id.action_two:
+//                    //launch another Activity
+//                    Toast t2 = Toast.makeText(this, "instructions", Toast.LENGTH_LONG);
+//                    t2.show();
+//                    break;
+        
+        }
+        return true;
+    }*/
+    
     private class FoodTrackerListAdapter extends ArrayAdapter<String> {
         
         public FoodTrackerListAdapter(Context context) {
@@ -202,27 +285,33 @@ public class FoodTrackerLVwithMenu extends AppCompatActivity {
         
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            //Log.i(ACTIVITY_NAME, "-- ThermostatListAdapter getView()");
-            LayoutInflater inflater = FoodTrackerLVwithMenu.this.getLayoutInflater();
-            View result = inflater.inflate(R.layout.foodtracker_itemlisted, null);
             
-            TextView textFoodItemName = result.findViewById(R.id.FTtextVLblItemName);
-          //  TextView textThermostatEntryTime = result.findViewById(R.id.textThermostatEntryTime);
-           // TextView textThermostatEntryTemperature = result.findViewById(R.id.textThermostatEntryTemperature);
+            LayoutInflater inflater = FoodTrackerLVwithMenu.this.getLayoutInflater();
+            View result = inflater.inflate(R.layout.foodtracker_entry, null);
+            
+            TextView editTextItemName = result.findViewById(R.id.textFoodTrackerName);
+            TextView editTextCal = result.findViewById(R.id.textFoodTrackerCal);
+            TextView editTextFat = result.findViewById(R.id.textFoodTrackerFat);
+            TextView editTextCarbs = result.findViewById(R.id.textFoodTrackerCarbs);
+            
+    
             
             // getItem(s) unnecessary since we are parsing through the ArrayList in getView
             ArrayList<String> row = foodtrackerArray.get(position);
-    
-            textFoodItemName.setText(row.get(1));
-            //textThermostatEntryTime.setText(row.get(2));
-            //textThermostatEntryTemperature.setText(row.get(3));
+            
+            Log.i(ACTIVITY_NAME, "---- ListView entry");
+            Log.i(ACTIVITY_NAME, "---- name: " + row.get(1));
+            Log.i(ACTIVITY_NAME, "---- cal: " + row.get(2));
+            Log.i(ACTIVITY_NAME, "---- carbs: " + row.get(4));
+            
+            editTextItemName.setText(row.get(1));
+            editTextCal.setText("Cal: " +row.get(2));
+            editTextFat.setText("Fat: " + row.get(3));
+            editTextCarbs.setText("Carbs: " + row.get(4));
             
             return result;
         }
     }
-    
-    
-    
     
     
 }

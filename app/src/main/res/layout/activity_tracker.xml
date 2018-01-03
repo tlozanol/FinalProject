@@ -34,4 +34,74 @@
         android:text="@string/buttonAddActivity"
         android:onClick="onAddActivityClick"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/currentSummaryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/currentSummaryLabel"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/currentSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"
+            android:layout_toEndOf="@+id/currentSummaryLabel"/>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/prevSummaryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/currentSummary"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/prevSummaryLabel"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/prevSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"
+            android:layout_below="@id/currentSummary"
+            android:layout_toEndOf="@id/prevSummaryLabel"/>
+
+        <ImageButton
+            android:id="@+id/buttonAboutActivity"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/squareinfo"
+            android:scaleType="fitCenter"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="onAboutClick"/>
+
+    </RelativeLayout>
+
 </LinearLayout>

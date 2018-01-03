@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class ActivityViewHistoryFragment extends Fragment
@@ -22,10 +25,11 @@ public class ActivityViewHistoryFragment extends Fragment
 
     private ActivityViewDetailFragment.OnItemSelectedListener mListener;
 
-    DatabaseHelper dbHelper;
+    static DatabaseHelper dbHelper;
     SQLiteDatabase database;
+    static ActivityListAdapter adapter;
 
-    private ArrayList<ArrayList<String>> listFromDB;
+    private static ArrayList<ArrayList<String>> listFromDB;
     private ArrayList<String> selection;
 
     public ActivityViewHistoryFragment() { Log.i(ACTIVITY_NAME, "in constructor"); }
@@ -38,6 +42,7 @@ public class ActivityViewHistoryFragment extends Fragment
 
         dbHelper = new DatabaseHelper(getActivity());
         database = dbHelper.getWritableDatabase();
+
         setMListener(getActivity());
     }
 
@@ -50,7 +55,10 @@ public class ActivityViewHistoryFragment extends Fragment
         listFromDB = dbHelper.getActivityDBData();
 
         ListView historyList = view.findViewById(R.id.listActivity);
-        historyList.setAdapter(new ActivityListAdapter(getActivity()));
+        adapter = new ActivityListAdapter(getActivity());
+
+        historyList.setAdapter(adapter);
+        updateList();
         historyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -61,11 +69,43 @@ public class ActivityViewHistoryFragment extends Fragment
                     selection = listFromDB.get(pos);
                     mListener.onSelection(selection);
                 }
+            }
+        });
 
+        Button buttonAddNew = view.findViewById(R.id.buttonAddNew);
+
+        buttonAddNew.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mListener.onAdd();
             }
         });
 
         return view;
+    }
+
+    public static void updateList()
+    {
+        listFromDB.clear();
+        listFromDB = dbHelper.getActivityDBData();
+        Collections.sort(listFromDB, new Comparator<ArrayList<String>>()
+        {
+            @Override
+            public int compare(ArrayList<String> o1, ArrayList<String> o2)
+            {
+
+                Integer arg1 = o1.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o1.get(2));
+                System.out.println(o1.get(2));
+
+                Integer arg2 = o2.get(2).trim().length() == 0 ? 0 : Integer.parseInt(o2.get(2));
+                System.out.println(o2.get(2));
+
+                return arg1.compareTo(arg2);
+            }
+        });
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -73,6 +113,7 @@ public class ActivityViewHistoryFragment extends Fragment
     {
         Log.i(ACTIVITY_NAME, "in onAttach");
         super.onAttach(context);
+        setMListener(getActivity());
     }
 
     public void setMListener(Context context)
@@ -118,9 +159,13 @@ public class ActivityViewHistoryFragment extends Fragment
 
             ArrayList<String> row = listFromDB.get(position);
 
-            textListDate.setText(row.get(1) + " - ");
-            textListActivity.setText(row.get(3) + " - ");
-            textListTime.setText(row.get(2) + " minutes");
+            String date = row.get(1) + " - ";
+            String activity = row.get(4) + " - ";
+            String time = row.get(3).isEmpty() ? "0 " + getString(R.string.minutes) : row.get(3) + getString(R.string.minutes);
+
+            textListDate.setText(date);
+            textListActivity.setText(activity);
+            textListTime.setText(time);
 
             return result;
         }
