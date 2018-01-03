@@ -11,7 +11,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 /**
- * As found on stackoverflow --> https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
+ * Found on stackoverflow --> https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
  * credit: SatanEnglish
  */
 
@@ -22,9 +22,34 @@ public class MyEditTextDatePicker implements View.OnClickListener, DatePickerDia
     private int month;
     private int year;
     private StringBuilder strDate;
+    private int intDate;
     private Context context;
 
-    String getDate(){ return strDate.toString();}
+    String getDate(){ return strDate.toString() == null ? "" : strDate.toString();}
+
+    void setDisplay(String date, String sortDate)
+    {
+        editTextDate.setText(date);
+        strDate = new StringBuilder(date);
+        year = Integer.valueOf(sortDate.substring(0,4));
+        month = Integer.valueOf(sortDate.substring(4,6)) -1;
+        day = Integer.valueOf(sortDate.substring(6));
+    }
+
+    int getIntDate()
+    {
+        String strMonth = String.valueOf(month +1);
+        String strDay = String.valueOf(day);
+
+        if(strMonth.length() < 2) strMonth = String.format("%s%s", "0", strMonth);
+        if(strDay.length() < 2) strDay = String.format("%s%s", "0", strDay);
+
+        String tempDate = String.valueOf(year) + strMonth + strDay;
+
+        intDate = Integer.parseInt(tempDate);
+
+        return intDate;
+    }
 
     boolean isSet(){ return editTextDate.getText().toString().trim().length() != 0; }
 
@@ -62,6 +87,7 @@ public class MyEditTextDatePicker implements View.OnClickListener, DatePickerDia
     {
         String strMonth = "";
 
+        //TODO: change months to string resources with if/else instead of switch :(
         switch(month)
         {
             case 0:

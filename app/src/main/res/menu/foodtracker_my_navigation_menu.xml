@@ -9,11 +9,13 @@
         android:orderInCategory="50"
         android:title="@string/food_tracker_menu_one"
         app:showAsAction="ifRoom" />
+
+    <!--
     <item
         android:id="@+id/action_two"
         android:icon="@drawable/helpblackwhite"
         android:orderInCategory="102"
         android:title="@string/food_tracker_menu_two"
-        app:showAsAction="always" />
+        app:showAsAction="always" />  -->
 
 </menu>

@@ -16,6 +16,7 @@
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
+    <string name="and">\u0020and\u0020</string>
     <string name="loading">Loading</string>
     <string name="select">Select:</string>
     <string name="about">About</string>
@@ -24,6 +25,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="delete">Delete</string>
+    <string name="ok">OK</string>
 
 
     <!-- Main Menu -->
@@ -44,13 +46,37 @@
     <string name="food_tracker_fragLabel">FOOD TRACKER</string>
     <string name="food_tracker_food_itemLbl">FOOD ITEM:</string>
     <string name="food_tracker_caloriesLbl">CALORIES:</string>
-    <string name="food_tracker_total_fatLbl">TOTAL FAT</string>
-    <string name="food_tracker_total_carbsLbl">TOTAL CARBS</string>
+    <string name="food_tracker_total_fatLbl">TOTAL FAT:</string>
+    <string name="food_tracker_total_carbsLbl">TOTAL CARBS:</string>
     <string name="food_tracker_save">SAVE</string>
     <string name="food_tracker_update">UPDATE</string>
     <string name="food_tracker_delete">DELETE</string>
     <string name="food_tracker_menu_one">One</string>
     <string name="food_tracker_menu_two">Two</string>
+    <string name="food_tracker_listTitle">FOODTRACKER LIST</string>
+    <string name="food_tracker_add_a_new_food_item">ADD NEW ITEM</string>
+    <string name="food_tracker_quit">QUIT</string>
+    <string name="food_tracker_help">HELP</string>
+
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="here_goes_the_text">
+        FOOD TRACKER\n
+        This is a food tracker app. It keeps track of the calories, total carbs and total fat of individual food items.\n\n
+        Click the I icon to view the version number and creator of this app.\n\n
+        Click QUIT to return to the beginning of the app.\n
+        Click ADD A NEW ITEM to add a new item to the Food Tracker List.This will bring you to a new page where you\n
+        can enter all information for your new entry.  At this point you may click SAVE button which will refresh your \n
+        list from the previous page.  You may also delete your entry by clicking the "Delete" button. \n\n
+        If you click on one of your items, this will bring you to a page where all the information \n
+        of this item is displayed.  At this point you may make changes to your data and click \n
+        "Update" button to refresh your list with the new changes.\n
+
+
+
+
+    </string>
+    <string name="food_tracker_closebtnHelp">CLOSE</string>
+
     <!--    <string name="FTbtn_save">SAVE</string>
     <string name="FTbtn_Edit">EDIT</string>
     <string name="button">button_Enter</string>
@@ -92,6 +118,40 @@
         <item>Swimming</item>
         <item>Skating</item>
     </string-array>
+    <string name="dateToast">You must enter a date</string>
+    <string name="addedSnack">Activity added</string>
+    <string name="currentSummaryLabel">Time spent this month: </string>
+    <string name="prevSummaryLabel">Time spent last month: </string>
+    <string name="buttonSave">Save changes</string>
+    <string name="activityEditTitle">Edit activity</string>
+    <string name="editedSnack">Changes saved</string>
+    <string name="currentTimeGood">. Way to go!</string>
+    <string name="currentTimeBad">. Better get to work!</string>
+    <string name="prevTimeGood">. Keep it up!</string>
+    <string name="prevTimeBad">. Tsk tsk.</string>
+    <string name="minutes">\u0020minutes</string>
+    <string name="inputMissing">Input missing:\u0020</string>
+    <string name="missingTime">time</string>
+    <string name="missingNotes">notes</string>
+    <string name="saveAnyway">\nSave anyway?</string>
+    <string name="running">Running</string>
+    <string name="walking">Walking</string>
+    <string name="biking">Biking</string>
+    <string name="swimming">Swimming</string>
+    <string name="skating">Skating</string>
+    <string name="activityTrackerAbout">
+        Activity Tracker App\n\n
+        Author: Catharina Kratzmann\n
+        Version: 1.0\n\n
+        Track your physical activity.\n\n
+        <u>Instructions:</u>\n\n
+        Click <b>View Activity History</b> to see your saved activities sorted by day.\n\n
+        Click <b>Add New Activity</b> to create a new activity.\n\n
+        From Activity History select a saved activity to view its details. Click <b>Edit</b> to change saved details or <b>Delete</b> to permanently remove activity from history.\n\n
+        While in Edit or Add New Activity use the options to save one of 5 different activities. An activity must have a date saved, other details are optional.\n\n
+        Clicking <b>Add</b> or <b>Save Changes</b> saves the activity to history. Clicking <b>Cancel</b> discards changes and returns to previous screen.
+    </string>
+
 
 
     <!-- Thermostat -->
@@ -164,4 +224,13 @@
     <string name="addedSnack">Activity added</string>
 
 
+
+    <string-array name="listOfCars">
+        <item>Sedan</item>
+        <item>Minivan</item>
+        <item>Coupe</item>
+        <item>Sports Car</item>
+        <item>Hatchback</item>
+        <item>Pickup Truck</item>
+    </string-array>
 </resources>

@@ -34,9 +34,103 @@
 
 
     <!-- Food Tracker -->
+    <string name="foodTrackerTitle">Traqueur d\'aliments</string>
+    <string name="FTBtnadd_new_food_item">Ajouter produit alimentaire</string>
+    <string name="FTEditTxtenter_name_of_new_food">Entrer nom de l\'aliment</string>
+    <string name="food_tracker_welcome">BIENVENUE - TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_click_here_to_start">CLIQUEZ ICI POUR DÉBUTER</string>
+    <string name="food_tracker_splashscreen">splashscreen</string>
+    <string name="food_tracker_fragLabel">TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_food_itemLbl">ALIMENT:</string>
+    <string name="food_tracker_caloriesLbl">CALORIES:</string>
+    <string name="food_tracker_total_fatLbl">GRAS:</string>
+    <string name="food_tracker_total_carbsLbl">GLUCIDES:</string>
+    <string name="food_tracker_save">SAUVEGARDER</string>
+    <string name="food_tracker_update">METTRE À JOUR</string>
+    <string name="food_tracker_delete">EFFACER</string>
+    <string name="food_tracker_menu_one">Un</string>
+    <string name="food_tracker_menu_two">Deux</string>
+    <string name="food_tracker_listTitle">LISTE TRAQUEUR D\'ALIMENTS</string>
+    <string name="food_tracker_add_a_new_food_item">AJOUTER ALIMENT</string>
+    <string name="food_tracker_quit">QUITTER</string>
+    <string name="food_tracker_help">AIDE</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="here_goes_the_text">
+         TRAQUEUR D\'ALIMENTS\n
+        Le traqueur d\'aliments est une application qui vous laisse enregistrer les calories, les gras et les glucides \n
+        des aliments que vous entrer dans votre liste. \n\n
+        Cliquez l\'icone au-dessus à la droite pour voir la version et le créateur de cette application. \n
+        Cliquez FIN pour terminer l\'application. \n
+        Cliquez AJOUTER UN ITEM pour ajouter un item à votre liste.  Ceci vous transportera à une nouvelle page ou \n
+        vous pouvez entrer tous les informations de votre item.  Vous pouver cliquez the bouton SAUVEGARDER et ceci \n
+        va renouveler votre liste de la page précédente. Vous pouvez aussi cliquez le bouton EFFACER. \n
+        Si vous mettez votre souris sur un item de la liste et cliquez ceci va vous transporter à une page ou \n
+        vous pouvez faire des changements à votre item. Une fois les changements faits vous pouvez cliquez le \n
+        bouton UPDATE et les informations vont être sauvegarder et la liste va être renouvelée. \n
+
+
+
+    </string>
+
+    <string name="food_tracker_closebtnHelp">FERMER</string>
+
 
 
     <!-- Activity Tracker -->
+    <string name="activityTrackerTitle">Suivi d\'activité</string>
+    <string name="activityHistoryTitle">Votre historique d\'activité</string>
+    <string name="activityAddTitle">Ajouter une nouvelle activité</string>
+    <string name="activityDetailTitle">Détails de l\'activité</string>
+    <string name="activityDateHint">La date</string>
+    <string name="activityTimeHint">Temps passé en minutes</string>
+    <string name="activityActivityLabel">Activité</string>
+    <string name="activityTime">Temps</string>
+    <string name="activityNotesTitle">Remarques</string>
+    <string name="activityNotesHint">ex: C\'était facile</string>
+    <string name="buttonAddActivity">Ajouter une nouvelle activité</string>
+    <string name="buttonDeleteActivity">Effacer</string>
+    <string name="buttonEditActivity">Modifier</string>
+    <string name="buttonActivityHistory">Afficher l\'historique des activités</string>
+    <string-array name="activitiesArray">
+        <item>La course</item>
+        <item>En marchant</item>
+        <item>Cyclisme</item>
+        <item>La natation</item>
+        <item>Patinage</item>
+    </string-array>
+    <string name="dateToast">Vous devez entrer une date</string>
+    <string name="addedSnack">Activité ajoutée</string>
+    <string name="currentSummaryLabel">Temps passé ce mois-ci:</string>
+    <string name="prevSummaryLabel">Temps passé le mois dernier:</string>
+    <string name="buttonSave">Sauvegarder</string>
+    <string name="activityEditTitle">Modifier l\'activité</string>
+    <string name="editedSnack">Changements sauvegardés</string>
+    <string name="currentTimeGood">. Bon!</string>
+    <string name="currentTimeBad">. Mieux vaut se mettre au travail!</string>
+    <string name="prevTimeGood">. Continuez!</string>
+    <string name="prevTimeBad">. Tsk tsk.</string>
+    <string name="minutes">\u0020minutes</string>
+    <string name="inputMissing">Entrée manquante:\u0020</string>
+    <string name="missingTime">temps</string>
+    <string name="missingNotes">notes</string>
+    <string name="saveAnyway">\nEnregistrer quand même?</string>
+    <string name="running">La course</string>
+    <string name="walking">En marchant</string>
+    <string name="biking">Cyclisme</string>
+    <string name="swimming">La natation</string>
+    <string name="skating">Patinage</string>
+    <string name="activityTrackerAbout">
+        Suivi d\'activité\n\n
+        Auteur: Catharina Kratzmann\n
+        Version: 1.0\n\n
+        Suivez votre activité physique.\n\n
+        <u>Instructions:</u>\n\n
+        Cliquez sur <b>Afficher l\'historique des activités</b> pour voir vos activités sauvegardées triées par jour.\n\n
+        Cliquez sur <b>Ajouter une nouvelle activité</b> créer une nouvelle activité.\n\n
+        À partir de l\'historique des activités, sélectionnez une activité enregistrée pour afficher ses détails. Cliquez sur <b>Modifier</b> pour modifier les détails enregistrés ou <b>Effacer</b> pour supprimer définitivement l\'activité de l\'histoire.\n\n
+        Dans Modifier ou Ajouter une nouvelle activité, utilisez les options pour enregistrer l\'une des 5 activités différentes. Une activité doit avoir une date enregistrée, les autres détails sont facultatifs.\n\n
+        Cliquez sur <b>Ajouter</b> ou <b>Sauvegarder</b> enregistre l\'activité dans l\'historique. Cliquez sur <b>Annuler</b> rejette les modifications et retourne à l\'écran précédent.
+    </string>
 
 
     <!-- Thermostat -->
@@ -66,6 +160,7 @@
         Cliquez sur annuler dans la fenêtre d\'édition pour annuler vos modifications.\n
         Cliquez sur supprimer dans la fenêtre d\'édition pour supprimer cette entrée.\n
         </string>
+
 
 
     <!-- Automobile -->

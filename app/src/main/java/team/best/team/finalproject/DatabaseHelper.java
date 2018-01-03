@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACTIVITY_NAME = "DatabaseHelper";
     
     private static final String DATABASE_NAME = "BEST_DATABASE.db";
-    private static final int VERSION_NUM = 8;
+    private static final int VERSION_NUM = 9;
     
     private static final String KEY_ID = "_ID"; // _ID is used by all tables
 
@@ -42,10 +42,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //ACTIVITY TRACKER TABLE
     private static final String ACTIVITY_TABLE_NAME = "ACTIVITY_TABLE";
     private static final String KEY_ACTIVITY_DAY = "DAY";
+    private static final String KEY_ACTIVITY_SORTDAY = "SORTDAY";
     private static final String KEY_ACTIVITY_TIME = "TIME";
     private static final String KEY_ACTIVITY_ACTIVITY = "ACTIVITY";
     private static final String KEY_ACTIVITY_NOTES = "NOTES";
-    private static final String[] ACTIVITY_COLUMNS = {KEY_ACTIVITY_DAY, KEY_ACTIVITY_TIME, KEY_ACTIVITY_ACTIVITY, KEY_ACTIVITY_NOTES}; // columns does not include KEY_ID
+    private static final String[] ACTIVITY_COLUMNS = {KEY_ACTIVITY_DAY, KEY_ACTIVITY_SORTDAY, KEY_ACTIVITY_TIME, KEY_ACTIVITY_ACTIVITY, KEY_ACTIVITY_NOTES}; // columns does not include KEY_ID
 
     //AUTOMOBILE TABLE
     private static final String AUTOMOBILE_TABLE_NAME = "AUTOMOBILE_TABLE";
@@ -59,11 +60,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //ACTIVITY FOOD TRACKER
     private static final String FOODTRACKER_TABLE_NAME = "FOODTRACKER_TABLE";
+    private static final String KEY_FOODTRACKER_NAME = "NAME";
     private static final String KEY_FOODTRACKER_CALORIES = "CALORIES";
-    private static final String KEY_FOODTRACKER_TOTAL_CARBS = "TOTAL_CARBS";
     private static final String KEY_FOODTRACKER_TOTAL_FAT = "TOTAL_FAT";
-    private static final String KEY_FOODTRACKER_DAY = "DAY";
-    private static final String[] FOODTRACKER_COLUMNS = {KEY_FOODTRACKER_CALORIES, KEY_FOODTRACKER_TOTAL_CARBS, KEY_FOODTRACKER_TOTAL_FAT,KEY_FOODTRACKER_DAY }; // columns does not include KEY_ID
+    private static final String KEY_FOODTRACKER_TOTAL_CARBS = "TOTAL_CARBS";
+    private static final String[] FOODTRACKER_COLUMNS = {KEY_FOODTRACKER_NAME, KEY_FOODTRACKER_CALORIES, KEY_FOODTRACKER_TOTAL_FAT, KEY_FOODTRACKER_TOTAL_CARBS}; // columns does not include KEY_ID
     
    
     
@@ -91,6 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_ACTIVITY_DAY + " TEXT, "
+                + KEY_ACTIVITY_SORTDAY + " TEXT, "
                 + KEY_ACTIVITY_TIME + " TEXT, "
                 + KEY_ACTIVITY_ACTIVITY + " TEXT,"
                 + KEY_ACTIVITY_NOTES + " TEXT"
@@ -108,14 +110,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + KEY_AVG_KM + " TEXT"
                 + " );");
         
-        // CREATE TABLE ACTIVITY_TABLE (_ID INTEGER PK AUTO, DAY TEXT, TIME TEXT, MINUTE TEXT, ACTIVITY TEXT, NOTES TEXT);
+        // CREATE TABLE FOOD_TABLE (_ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, CALORIES TEXT, TOTAL_FAT TEXT, TOTAL_CARBS TEXT);
         db.execSQL("CREATE TABLE " + FOODTRACKER_TABLE_NAME
                 + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + KEY_FOODTRACKER_NAME + " TEXT, "
                 + KEY_FOODTRACKER_CALORIES + " TEXT, "
-                + KEY_FOODTRACKER_TOTAL_CARBS + " TEXT,"
                 + KEY_FOODTRACKER_TOTAL_FAT + " TEXT,"
-                + KEY_FOODTRACKER_DAY + " TEXT"
+                + KEY_FOODTRACKER_TOTAL_CARBS + " TEXT"
                 + " );");
     }
     
@@ -161,7 +163,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public int getActivityItemID(int position) {
         Log.i(ACTIVITY_NAME, "-- In getActivityItemID()");
 
-        return getItemID(position, ACTIVITY_TABLE_NAME);
+        if(position == -1) return getLastItemID(ACTIVITY_TABLE_NAME);
+        else return getItemID(position, ACTIVITY_TABLE_NAME);
     }
 
     public int getAutomobileItemID(int position) {
@@ -194,6 +197,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         else {
             Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in position " + position);
+            return -1;
+        }
+    }
+
+    private int getLastItemID(String tableName) {
+        Log.i(ACTIVITY_NAME, "-- In getItemID()");
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tableName, null);
+
+        if (cursor.moveToLast()) {
+            return Integer.parseInt(cursor.getString(cursor.getColumnIndex(KEY_ID)));
+        }
+        else {
+            Log.i(ACTIVITY_NAME, "-- In getItemID(), no data in last position");
             return -1;
         }
     }
